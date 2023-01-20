@@ -9,82 +9,71 @@ header {
   align-items: center;
   width: 100%;
   height: 100px;
-  /* border: 1px solid black; */
+  position: fixed; /* 메뉴바가 따라다님 */
 }
 #searchIcon {
+  margin-left: 20px;
   width: 40px;
 }
 #hamburgerMenuIcon {
+  margin-right: 20px;
   width: 50px;
 }
-
 header > img {
   width: 100px;
 }
-
 /* main */
 #container {
   width: 80%;
   margin: auto;
-  border: 1px dashed gray;
+  padding-top: 100px;
 }
-
 /* section */
 #content {
+  display: inline-block;
   width: 300px;
   margin: 20px;
   border-radius: 20px;
   padding: 20px 20px 40px 20px;
   background-color: rgb(240, 240, 240);
 }
-
 #contentTop {
   display: flex;
 }
-
 #profileImg {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin: 10px;
 }
-
 #contentTopInfo {
   flex-direction: column;
 }
-
 #contentTopInfo p {
   margin: 10px 5px;
   font-size: small;
-  /* font size 고민.. */
 }
-
 #contentMainPhoto {
   width: 100%;
   margin: auto;
   border-radius: 20px;
 }
-
 #favorite, #noFavorite, #comments {
   width: 30px;
   height: 30px;
   margin: 10px 0px;
 }
-
 #favorite {
   display: inline;
 }
-
 #noFavorite {
   display: none;
 }
-
 #btnMore {
   display: block;
   float: right;
   margin-bottom: 10px;
 }
-
 #btnHidden {
   display: none;
   float: right;

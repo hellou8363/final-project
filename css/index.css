@@ -18,7 +18,7 @@ header {
   width: 40px;
 }
 /* top-menu-img */
-header > img {
+header > a > img {
   width: 100px;
 }
 /* hamburger-menu */
@@ -84,7 +84,7 @@ a, a:visited {
 #logout > a {
   color: red;
 }
-/* Contents */
+/* Countainer */
 #container {
   /* header의 position이 fixed로 
   Content가 말려들어가지 않게 padding-top 최소 100px 필수 */
@@ -93,11 +93,44 @@ a, a:visited {
   padding-right: 20px;
   
 }
+/* Search Bar */
+#searchBar {
+  width: 370px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 35px;
+  margin: auto;
+}
+#searchBar > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#itemSelect {
+  border: 0;
+}
+#search {
+  width: 230px;
+  height: 30px;
+  padding: 5px 15px;
+  border: 0;
+}
+#btn_search {
+  border: 0;
+  background-color: #0000;
+  cursor: pointer;
+}
+.search-icon {
+  width: 25px;
+  height: 25px;
+}
+/* Content */
 section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 20px;
 }
 section > div {
   border: 1px solid gray;
@@ -105,14 +138,14 @@ section > div {
   margin: 15px;
   background-color: rgba(255, 255, 255, 0.8);
 }
-section > div > svg {
+section > div > a > svg {
   width: 250px;
   height: 200px;
   display: block;
   margin: auto;
   padding: 30px;
 }
-section > div > p {
+section > div > a > p {
   font-size: large;
   font-weight: bold;
   text-align: center;

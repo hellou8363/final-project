@@ -1,48 +1,77 @@
+/* body */
 body {
   margin: 0;
-  background-image: url(../img/bg-wego.jpg) ;
+  background-image: url(../img/bg-wego.jpg);
 }
-/* top */
+/* header */
 header {
   background-color: rgb(220, 237, 195);
   display: flex;
-  justify-content: space-between; /* 요소들의 간격을 균일하게 배치 */
+  justify-content: space-between; 
   align-items: center;
   width: 100%;
   height: 100px;
-  position: fixed; /* 메뉴바가 따라다님 */
+  position: fixed; 
 }
-#searchIcon {
+.notification {
   margin-left: 20px;
   width: 40px;
 }
-#hamburgerMenuIcon {
-  margin-right: 20px;
-  width: 50px;
-  position: relative; /* nav의 기준 */
-}
+/* top-menu-img */
 header > img {
   width: 100px;
 }
-/* menu */
-header > nav {
-  display: none;
+/* hamburger-menu */
+.hamburger-icon {
+  margin: 20px;
 }
-header > nav > img {
+.hamburger-icon div {
+  width: 50px;
+  height: 5px;
+  background-color: gray;
+  margin: 5px;
+  transition: all 0.5s ease;
+}
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-6px, 7px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+#menu {
+  display: none;
+  width: 400px;
+  height: 800px;
+  background-color: rgb(220, 237, 195);
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+#menu > img {
   display: block;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   margin: 50px auto;
 }
-header > nav > ul {
+#menu > ul {
   list-style: none;
-  padding-left: 40%;
+  padding-left: 35%;
 }
-header > nav > ul > li {
+#menu > ul > li {
   font-size: 20px;
   font-weight: 600;
   margin: 20px 0px;
+}
+#menu > hr {
+  width: 80%;
+  border: 0.5px solid rgb(227, 227, 227);
+  border-bottom: 0px;
 }
 a, a:visited {
   color: #000;
@@ -55,79 +84,36 @@ a, a:visited {
 #logout > a {
   color: red;
 }
-header > a:focus + nav {
-  display: block;
-  width: 400px;
-  height: 800px;
-  background-color: rgb(220, 237, 195);
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-header > nav > hr {
-  width: 80%;
-  border: 0.5px solid rgb(227, 227, 227);
-  border-bottom: 0px;
-}
-
-/* main */
+/* Contents */
 #container {
-  width: 80%;
-  margin: auto;
-  padding-top: 100px;
+  /* header의 position이 fixed로 
+  Content가 말려들어가지 않게 padding-top 최소 100px 필수 */
+  padding-top: 150px;
+  padding-left: 20px;
+  padding-right: 20px;
+  
 }
-/* section */
-#content {
-  display: inline-block;
-  width: 300px;
-  margin: 20px;
-  border-radius: 20px;
-  padding: 20px 20px 40px 20px;
-  background-color: rgb(240, 240, 240);
-}
-#contentTop {
+section {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
-#profileImg {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin: 10px;
+section > div {
+  border: 1px solid gray;
+  border-radius: 25px;
+  margin: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
-#contentTopInfo {
-  flex-direction: column;
-}
-#contentTopInfo p {
-  margin: 10px 5px;
-  font-size: small;
-}
-#contentMainPhoto {
-  width: 100%;
-  margin: auto;
-  border-radius: 20px;
-}
-#favorite, #noFavorite, #comments {
-  width: 30px;
-  height: 30px;
-  margin: 10px 0px;
-}
-#favorite {
-  display: inline;
-}
-#noFavorite {
-  display: none;
-}
-#btnMore {
+section > div > svg {
+  width: 250px;
+  height: 200px;
   display: block;
-  float: right;
-  margin-bottom: 10px;
+  margin: auto;
+  padding: 30px;
 }
-#btnHidden {
-  display: none;
-  float: right;
-  margin-bottom: 10px;
+section > div > p {
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
 }
-
-

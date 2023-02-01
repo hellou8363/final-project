@@ -7,11 +7,11 @@ body {
 header {
   background-color: rgb(220, 237, 195);
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100px;
-  position: fixed; 
+  position: fixed;
 }
 .notification {
   margin-left: 20px;
@@ -73,7 +73,8 @@ header > a > img {
   border: 0.5px solid rgb(227, 227, 227);
   border-bottom: 0px;
 }
-a, a:visited {
+a,
+a:visited {
   color: #000;
   text-decoration: none;
 }
@@ -88,10 +89,10 @@ a, a:visited {
 #container {
   /* header의 position이 fixed로 
   Content가 말려들어가지 않게 padding-top 최소 100px 필수 */
+  width: 100%;
   padding-top: 150px;
   padding-left: 20px;
   padding-right: 20px;
-  
 }
 /* Search Bar */
 #searchBar {
@@ -125,12 +126,23 @@ a, a:visited {
   height: 25px;
 }
 /* Content */
-section {
+@media screen and (max-width: 700px) { /* 모바일 기준 */
+  section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  }
+}
+@media screen and (min-width: 705px) { /* 데스크탑 기준 */
+section {
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 350px);
+  grid-template-rows: repeat(2, 350px);
+  align-items: center;
+  justify-content: center;
+}
 }
 section > div {
   border: 1px solid gray;

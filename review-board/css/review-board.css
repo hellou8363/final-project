@@ -1,62 +1,20 @@
-/* main */
-#container { 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 80%;
-  margin: auto;
-  padding-top: 100px;
-}
-/* section */
 #content {
-  display: inline-block;
-  width: 300px;
-  margin: 20px;
-  border-radius: 20px;
-  padding: 20px 20px 40px 20px;
-  background-color: rgb(240, 240, 240);
+  border: 1px solid gray;
+  border-radius: 25px;
+  padding: 20px;
 }
-#contentTop {
-  display: flex;
+.top {
+  position: relative;
 }
-#profileImg {
+.top > img {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  margin: 10px;
+  border-radius: 25px;
+  margin-right: 10px;
 }
-#contentTopInfo {
-  flex-direction: column;
+.user-name {
+  font-size: large;
 }
-#contentTopInfo p {
-  margin: 10px 5px;
-  font-size: small;
+.mountain-name {
+  position: ;
 }
-#contentMainPhoto {
-  width: 100%;
-  margin: auto;
-  border-radius: 20px;
-}
-#favorite, #noFavorite, #comments {
-  width: 30px;
-  height: 30px;
-  margin: 10px 0px;
-}
-#favorite {
-  display: inline;
-}
-#noFavorite {
-  display: none;
-}
-#btnMore {
-  display: block;
-  float: right;
-  margin-bottom: 10px;
-}
-#btnHidden {
-  display: none;
-  float: right;
-  margin-bottom: 10px;
-}
-
-

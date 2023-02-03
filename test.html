@@ -6,26 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test Page</title>
     <style>
-      .side_bar {
+      /* #side_bar {
+        transition: width 3s;
+
+      } */
+      .hidden_menu {
         width: 0;
-        height: 100%;
+        height: 200px;
+        /* background-color: aquamarine; */
+      }
+      .show_menu {
+        width: 400px;
+        height: 200px;
+        background-color: aquamarine;
+        /* transition: width 3s; */
       }
     </style>
   </head>
   <body>
     <button id="btn" type="button">Btn</button>
-    <div class="side_bar">
-      <ul>
+    <div id="side_bar" class="hidden_manu">
+      <!-- <ul>
         <li>test</li>
         <li>test</li>
         <li>test</li>
         <li>test</li>
         <li>test</li>
-      </ul>
+      </ul> -->
     </div>
     <script>
       document.getElementById('btn').addEventListener('click', () => {
-        document.querySelector('.side_bar').sty
+        // document.getElementById('side_bar').style.width = '400px';
+        document.getElementById('side_bar').setAttribute('class', 'show_menu');
       })
     </script>
   </body>

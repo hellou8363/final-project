@@ -175,7 +175,7 @@ header {
   text-align: left;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   margin: 10px 0 0;
 }
 #title {
@@ -232,3 +232,23 @@ header {
   text-align: center;
 }
 /* review */
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-info ~ img {
+  width: 100%;
+  border-radius: 15px;
+}
+.bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom-info > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

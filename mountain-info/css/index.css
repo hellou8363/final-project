@@ -155,6 +155,7 @@ header {
   white-space: nowrap;
   scrollbar-width: none;
   user-select: none;
+  scroll-behavior:smooth;
 }
 .wrap::-webkit-scrollbar {
   display: none;

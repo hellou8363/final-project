@@ -20,7 +20,7 @@ img {
   white-space: nowrap;
   scrollbar-width: none;
   user-select: none;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 .wrap::-webkit-scrollbar {
   display: none;
@@ -83,6 +83,18 @@ img {
   justify-items: center;
   align-items: center;
 }
+/* ---------Add */
+.zoom-rankers-top3 {
+  display: none;
+  width: 1000px;
+  height: 300px;
+  background-color: gray;
+  position: absolute;
+  top: 200px;
+  left: calc((100vw / 2) - (1260 / 2));
+}
+
+/* ---------End */
 .ranker-img {
   margin: 20px 0;
 }
@@ -144,7 +156,7 @@ img {
 .recruit-data > p {
   margin: 0;
 }
-.recruit-data > #mountain-name {
+.recruit-data > #mountainName {
   text-align: center;
 }
 /* review */

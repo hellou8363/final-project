@@ -64,6 +64,7 @@ img {
 .rank {
   width: 100%;
   border-radius: 15px;
+  position: relative;
 }
 .rankers {
   /* padding: 20px 20px; */
@@ -86,14 +87,51 @@ img {
 /* ---------Add */
 .zoom-rankers-top3 {
   display: none;
-  width: 1000px;
+  width: 600px;
   height: 300px;
+  border-radius: 15px;
   background-color: gray;
+  padding: 20px 40px;
   position: absolute;
-  top: 200px;
-  left: calc((100vw / 2) - (1260 / 2));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
-
+.zoom-rankers-top3 .wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zoom-rankers-top3 .wrap > div {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.top1 > .medal-img {
+  width: 50px;
+  height: 50px;
+  background: url(../svg/medal1.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.top2 > .medal-img {
+  width: 40px;
+  height: 40px;
+  background: url(../svg/medal2.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.top3 > .medal-img {
+  width: 30px;
+  height: 30px;
+  background: url(../svg/medal3.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 /* ---------End */
 .ranker-img {
   margin: 20px 0;

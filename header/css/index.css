@@ -124,7 +124,7 @@ header {
   outline: none;
   background: none;
 }
-#search + button {
+.search-bar button {
   width: 20px;
   height: 20px;
   border: 0;

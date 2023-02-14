@@ -1,6 +1,9 @@
 /* common */
 body {
   margin: 0px;
+  background: url(../img/bg-wego.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 a {
   text-decoration: none;
@@ -29,6 +32,7 @@ header {
   align-items: center;
   background-color: #e7e7e7;
   position: relative;
+  background-color: rgb(220, 237, 195);
 }
 .logo {
   width: 50px;
@@ -154,11 +158,12 @@ header {
 .item {
   display: inline-block;
   width: 200px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 15px;
   padding: 20px;
   margin: 0 10px;
   text-align: center;
+  background-color: #fff;
 }
 .item > img {
   display: inline-block;
@@ -168,6 +173,13 @@ header {
 }
 .item > form {
   text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 0;
+}
+#title {
+  margin: 10px auto;
 }
 .favorite {
   width: 30px;
@@ -185,8 +197,38 @@ header {
   background-color: lightgray;
   text-align: center;
 }
-/* mountain-info */
-
+/* mountain-info - 개별 스타일 X */
 /* recruit */
-
+.user-info {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+}
+.user-info > img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.item > hr {
+  border-top: 1px solid lightgray;
+  border-bottom: 0;
+  border-radius: 35px;
+  margin-bottom: 10px;
+}
+.recruit #title + img {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.recruit-data {
+  text-align: left;
+}
+.recruit-data > p {
+  margin: 0;
+}
+.recruit-data > #mountain-name {
+  text-align: center;
+}
 /* review */

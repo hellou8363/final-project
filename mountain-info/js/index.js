@@ -1,17 +1,9 @@
-var xhr = new XMLHttpRequest();
-var url = 'http://openapi.forest.go.kr/openapi/service/cultureInfoService/gdTrailInfoOpenAPI'; /*URL*/
-var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'LPC6fmOGiM4ZgvKCF769CCNSFNIU4A3eHT6dDOpQzgmOFkQke7WfOISBweq5tamQs92Qv9nAqIJ8YOu4eObrZg%3D%3D'; /*Service Key*/
-queryParams += '&' + encodeURIComponent('searchMtNm') + '=' + encodeURIComponent('가'); /**/
-queryParams += '&' + encodeURIComponent('searchArNm') + '=' + encodeURIComponent('강원'); /**/
-queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
-xhr.open('GET', url + queryParams);
-xhr.onreadystatechange = function () {
-    if (this.readyState == 4) {
-      const xmlParser = new DOMParser();
-      const xmlDoc = xmlParser.parseFromString(text, 'text/xml');
-      xmlDoc.getElementById()
-    }
-};
+const $ = (selector) => document.querySelector(selector);
 
-xhr.send('');
+// 메인페이지의 산정보, 모집, 후기 글에 대한 가로 슬라이드 구현
+// 조건: 타겟(.wrap)위엣 마우스를 스크롤 할 때
+// 강제 shift를 적용해서 휠로 좌/우 이동이 되게 할 것
+$('.wrap').addEventListener('wheel', e => {
+  console.log(e.deltaY);
+  console.log(e);
+})

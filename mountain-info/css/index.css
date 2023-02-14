@@ -23,6 +23,9 @@ li {
 .blind {
   display: none;
 }
+img {
+  -webkit-user-drag: none;
+}
 /* header */
 header {
   width: 100%;
@@ -151,6 +154,7 @@ header {
   overflow: scroll;
   white-space: nowrap;
   scrollbar-width: none;
+  user-select: none;
 }
 .wrap::-webkit-scrollbar {
   display: none;

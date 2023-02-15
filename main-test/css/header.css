@@ -1,6 +1,9 @@
 /* common */
 body {
   margin: 0px;
+  background: url(../img/bg-wego.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 a {
   text-decoration: none;
@@ -104,7 +107,6 @@ header {
   border-radius: 50%;
 }
 .search-bar {
-  width: 280px;
   border-radius: 30px;
   padding: 12px 20px;
   background-color: #e7e7e7;
@@ -113,19 +115,19 @@ header {
 }
 .search-bar > form {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   gap: 10px;
 }
 #search {
-  width: 210px;
+  width: 200px;
   border: 0;
   padding: 5px;
   font-size: 16px;
   outline: none;
   background: none;
 }
-.search-bar .search-icon {
+#search + button {
   width: 20px;
   height: 20px;
   border: 0;
@@ -135,16 +137,4 @@ header {
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
-}
-.hidden {
-  width: 20px;
-  height: 20px;
-}
-.cancel {
-  display: none;
-  width: 20px;
-  height: 20px;
-  border: 0;
-  background: url(../svg/cancle.svg);
-  background-repeat: no-repeat;
 }

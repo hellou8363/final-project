@@ -26,21 +26,21 @@ $("#userImg").addEventListener("click", () => {
 
 
 // 메인페이지 - Rank에서 특정 왕 hover시 1 ~ 3위까지 보여주는 랭크목록 표시
-$(".deep-king").addEventListener("mouseover", () => {
-  $(".zoom-rankers-top3").style.display = "block";
-});
+// $(".deep-king").addEventListener("mouseover", () => {
+//   $(".zoom-rankers-top3").style.display = "block";
+// });
 
-$(".high-king").addEventListener("mouseover", () => {
-  $(".zoom-rankers-top3").style.display = "block";
-});
+// $(".high-king").addEventListener("mouseover", () => {
+//   $(".zoom-rankers-top3").style.display = "block";
+// });
 
-$(".true-king").addEventListener("mouseover", () => {
-  $(".zoom-rankers-top3").style.display = "block";
-});
+// $(".true-king").addEventListener("mouseover", () => {
+//   $(".zoom-rankers-top3").style.display = "block";
+// });
 
-$(".review-king").addEventListener("mouseover", () => {
-  $(".zoom-rankers-top3").style.display = "block";
-});
+// $(".review-king").addEventListener("mouseover", () => {
+//   $(".zoom-rankers-top3").style.display = "block";
+// });
 
 
 // 메인페이지 - 산정보, 모집, 후기 글 목록 위에서

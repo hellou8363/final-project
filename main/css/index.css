@@ -73,7 +73,7 @@ img {
   align-items: center;
   gap: 20px;
 }
-.rankers > div {
+.rankers > div:not(.zoom-rankers-top3) {
   width: 300px;
   /* height: 300px; */
   border-radius: 15px;
@@ -84,7 +84,19 @@ img {
   justify-items: center;
   align-items: center;
 }
-/* ---------Add */
+/* rankers - hover */
+.deep-king:hover ~ .zoom-rankers-top3 {
+  display: block;
+}
+.high-king:hover ~ .zoom-rankers-top3 {
+  display: block;
+}
+.true-king:hover ~ .zoom-rankers-top3 {
+  display: block;
+}
+.review-king:hover ~ .zoom-rankers-top3 {
+  display: block;
+}
 .zoom-rankers-top3 {
   display: none;
   width: 600px;
@@ -96,7 +108,6 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
 }
 .zoom-rankers-top3 .wrap {
   display: flex;
@@ -132,7 +143,6 @@ img {
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* ---------End */
 .ranker-img {
   margin: 20px 0;
 }
@@ -162,7 +172,6 @@ img {
   align-items: center;
   gap: 10px;
 }
-/* --------------- end ---------------- */
 /* mountain-info - 개별 스타일 X */
 /* recruit */
 .user-info {

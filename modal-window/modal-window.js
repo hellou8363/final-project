@@ -16,13 +16,13 @@ $(".cancle + button").addEventListener("click", (e) => {
     $(".modal-window").style.display = "none";
     $(".test").innerText = "로그아웃";
     $(".cancle + button").innerText = "로그아웃";
-    $(".cancle + button").name = "login";
+    // $(".cancle + button").name = "login";
     $("#text").innerHTML = "로그아웃 하시겠습니까?";
   } else {
     $(".modal-window").style.display = "none";
     $(".test").innerText = "로그인";
     $(".cancle + button").innerText = "로그인";
-    $(".cancle + button").name = "logout";
+    // $(".cancle + button").name = "logout";
     $("#text").innerHTML = "로그인이 필요합니다.<br>로그인하시겠습니까?";
   }
 });

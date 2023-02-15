@@ -1,9 +1,6 @@
 /* common */
 body {
   margin: 0px;
-  background: url(../img/bg-wego.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 a {
   text-decoration: none;

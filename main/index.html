@@ -9,7 +9,7 @@
     <link rel="icon" href="./ico/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/index.css" />
-    <script src="./js/index.js" defer></script>
+    <script src="./js/header.js" defer></script>
   </head>
   <body>
     <!-- Top Menu -->
@@ -23,7 +23,6 @@
           <li><a href="#">등산후기</a></li>
           <li><a href="#">랭킹</a></li>
           <li><a href="#">모집</a></li>
-          <li><a href="#">문의하기</a></li>
         </ul>
       </nav>
       <div class="user">
@@ -40,8 +39,15 @@
       </div>
       <div class="search-bar">
         <form action="#" method="get">
-          <input type="text" name="search" id="search" placeholder="Search" />
-          <button type="submit"></button>
+          <button class="search-icon" type="submit"></button>
+          <input
+            type="text"
+            name="search"
+            id="search"
+            value=""
+            placeholder="Search"
+          />
+          <button class="cancel" type="reset"></button>
         </form>
       </div>
     </header>
@@ -57,14 +63,6 @@
               <div class="king-img"></div>
               <div class="mountain-img"></div>
             </div>
-            <div class="top-ranker-info">
-              <img
-                id="deepKingImg"
-                src="./img/gray.png"
-                alt="한우물왕 랭킹 1위 프로필 이미지"
-              />
-              <span id="deepKingName">김개똥</span>
-            </div>
           </div>
           <!-- 제일높왕 -->
           <div class="high-king">
@@ -72,14 +70,6 @@
             <div class="ranker-img">
               <div class="king-img"></div>
               <div class="mountain-img"></div>
-            </div>
-            <div class="top-ranker-info">
-              <img
-                id="deepKingImg"
-                src="./img/gray.png"
-                alt="한우물왕 랭킹 1위 프로필 이미지"
-              />
-              <span id="deepKingName">김개똥</span>
             </div>
           </div>
           <!-- 참대왕 -->
@@ -89,14 +79,6 @@
               <div class="king-img"></div>
               <div class="mountain-img"></div>
             </div>
-            <div class="top-ranker-info">
-              <img
-                id="deepKingImg"
-                src="./img/gray.png"
-                alt="한우물왕 랭킹 1위 프로필 이미지"
-              />
-              <span id="deepKingName">김개똥</span>
-            </div>
           </div>
           <!-- 후기왕 -->
           <div class="review-king">
@@ -104,40 +86,6 @@
             <div class="ranker-img">
               <div class="king-img"></div>
               <div class="mountain-img"></div>
-            </div>
-            <div class="top-ranker-info">
-              <img
-                id="deepKingImg"
-                src="./img/gray.png"
-                alt="한우물왕 랭킹 1위 프로필 이미지"
-              />
-              <span id="deepKingName">김개똥</span>
-            </div>
-          </div>
-          <div class="zoom-rankers-top3">
-            <h3 class="title">한우물왕</h3>
-            <div class="wrap">
-              <div class="top2">
-                <div class="medal-img"></div>
-                <div class="ranker-img">
-                  <div class="king-img"></div>
-                  <div class="mountain-img"></div>
-                </div>
-              </div>
-              <div class="top1">
-                <div class="medal-img"></div>
-                <div class="ranker-img">
-                  <div class="king-img"></div>
-                  <div class="mountain-img"></div>
-                </div>
-              </div>
-              <div class="top3">
-                <div class="medal-img"></div>
-                <div class="ranker-img">
-                  <div class="king-img"></div>
-                  <div class="mountain-img"></div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

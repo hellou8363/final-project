@@ -1,3 +1,108 @@
+/* Desktop */
+@media screen and (min-width: 1100px) {
+  /* rank */
+  .rankers {
+    /* padding: 20px 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .rankers > div {
+    width: 300px;
+    /* height: 300px; */
+    border-radius: 15px;
+    padding: 10px 0 30px;
+    background-color: rgb(168, 255, 226);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+  }
+  .top1 > .medal-img {
+    width: 50px;
+    height: 50px;
+    background: url(../svg/medal1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .top2 > .medal-img {
+    width: 40px;
+    height: 40px;
+    background: url(../svg/medal2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .top3 > .medal-img {
+    width: 30px;
+    height: 30px;
+    background: url(../svg/medal3.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .ranker-img {
+    margin: 20px 0;
+  }
+  .king-img {
+    width: 100px;
+    height: 100px;
+    background: url(../svg/king.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .mountain-img {
+    width: 100px;
+    height: 70px;
+    margin-top: -30px;
+    background: url(../svg/mountain.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+/* Tablet*/
+@media screen and (max-width: 1099px) {
+  /* rank */
+  .rankers {
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+    grid-template-columns: repeat(2, 50%);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .rankers > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: rgb(168, 255, 226);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .ranker-img {
+    margin: 20px 0;
+  }
+  .king-img {
+    width: 100px;
+    height: 100px;
+    background: url(../svg/king.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .mountain-img {
+    width: 100px;
+    height: 70px;
+    margin-top: -30px;
+    background: url(../svg/mountain.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+/* Phone
+@media screen and (max-width: 767px) {
+} */
 /* common */
 img {
   /* 드래그 방지 */
@@ -58,119 +163,6 @@ img {
   background: url(../svg/favorite.svg);
   background-repeat: no-repeat;
   background-size: contain;
-}
-/* rank */
-/* --------------- start ---------------- */
-.rank {
-  width: 100%;
-  border-radius: 15px;
-  position: relative;
-}
-.rankers {
-  /* padding: 20px 20px; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-.rankers > div:not(.zoom-rankers-top3) {
-  width: 300px;
-  /* height: 300px; */
-  border-radius: 15px;
-  padding: 10px 0 30px;
-  background-color: rgb(168, 255, 226);
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items: center;
-}
-/* rankers - hover */
-.deep-king:hover ~ .zoom-rankers-top3 {
-  display: block;
-}
-.high-king:hover ~ .zoom-rankers-top3 {
-  display: block;
-}
-.true-king:hover ~ .zoom-rankers-top3 {
-  display: block;
-}
-.review-king:hover ~ .zoom-rankers-top3 {
-  display: block;
-}
-.zoom-rankers-top3 {
-  display: none;
-  width: 600px;
-  height: 300px;
-  border-radius: 15px;
-  background-color: gray;
-  padding: 20px 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.zoom-rankers-top3 .wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.zoom-rankers-top3 .wrap > div {
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-.top1 > .medal-img {
-  width: 50px;
-  height: 50px;
-  background: url(../svg/medal1.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.top2 > .medal-img {
-  width: 40px;
-  height: 40px;
-  background: url(../svg/medal2.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.top3 > .medal-img {
-  width: 30px;
-  height: 30px;
-  background: url(../svg/medal3.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.ranker-img {
-  margin: 20px 0;
-}
-.king-img {
-  width: 100px;
-  height: 100px;
-  background: url(../svg/king.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.mountain-img {
-  width: 100px;
-  height: 70px;
-  margin-top: -30px;
-  background: url(../svg/mountain.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-#deepKingImg {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-.top-ranker-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
 }
 /* mountain-info - 개별 스타일 X */
 /* recruit */

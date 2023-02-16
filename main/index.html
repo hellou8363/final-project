@@ -26,8 +26,10 @@
         </ul>
       </nav>
       <div class="user">
-        <img id="userImg" src="https://picsum.photos/id/684/600/400" alt="" />
-        <!-- <a href="#" class="notice"><span class="blind">notice</span></a> -->
+        <!-- 로그인 상태 => 현재 display: none; 상태 -->
+        <img id="userImg" class="user-profile-img" src="https://picsum.photos/id/684/600/400" alt="회원 프로필 이미지">
+        <!-- 비로그인 상태 -->
+        <button class="login-btn" src="https://picsum.photos/id/684/600/400" alt="로그인 버튼">
         <div class="menubar">
           <ul>
             <li><a href="#">마이페이지</a></li>
@@ -40,13 +42,7 @@
       <div class="search-bar">
         <form action="#" method="get">
           <button class="search-icon" type="submit"></button>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            value=""
-            placeholder="Search"
-          />
+          <input type="text" name="search" id="search" value="" placeholder="Search">
           <button class="cancel" type="reset"></button>
         </form>
       </div>

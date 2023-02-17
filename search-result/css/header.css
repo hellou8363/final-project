@@ -76,6 +76,7 @@ header {
   top: 70px;
   right: 0;
   background-color: #fff;
+  z-index: 2;
 }
 .menubar li {
   margin: 20px 10px;

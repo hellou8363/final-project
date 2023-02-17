@@ -160,3 +160,13 @@ header {
   background: url(../svg/cancle.svg);
   background-repeat: no-repeat;
 }
+@media screen and (max-width: 480px) {
+  .navbar li {
+    padding: 0 5px;
+  }
+  .navbar li:hover {
+    border-radius: 10px;
+    padding: 5px 5px;
+    background-color: #fff;
+  }
+}

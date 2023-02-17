@@ -39,7 +39,6 @@
 }
 .item {
   width: 100%;
-  border-radius: 15px;
   padding: 10px;
   text-align: center;
   background-color: #fff;
@@ -97,6 +96,35 @@
   }
   #itemContent {
     height: 120px;
+    display: inline-block;
+    overflow-y: hidden;
+  }
+}
+@media screen and (min-width: 481px) {
+  .container {
+    width: 80%;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    margin: 100px auto 100px;
+    padding: 0 20px;
+    background-color: #fff;
+  }
+  .out-line {
+    border: 0;
+    padding: 0;
+  }
+  .itemDetail {
+    height: 150px;
+  }
+  #itemImg {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+  }
+  #itemContent {
+    height: 150px;
+    margin: 0 20px;
     display: inline-block;
     overflow-y: hidden;
   }

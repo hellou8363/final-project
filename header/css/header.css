@@ -3,7 +3,7 @@ body {
   margin: 0px;
   background: url(../img/bg-wego.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
 }
 a {
   text-decoration: none;
@@ -159,4 +159,14 @@ header {
   border: 0;
   background: url(../svg/cancle.svg);
   background-repeat: no-repeat;
+}
+@media screen and (max-width: 480px) {
+  .navbar li {
+    padding: 0 5px;
+  }
+  .navbar li:hover {
+    border-radius: 10px;
+    padding: 5px 5px;
+    background-color: #fff;
+  }
 }

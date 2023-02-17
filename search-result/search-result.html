@@ -9,7 +9,8 @@
     <link rel="icon" href="./ico/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/search-result.css" />
-    <script src="./js/index.js" defer></script>
+    <script src="./js/header.js" defer></script>
+    <script src="./js/search-result.js" defer></script>
   </head>
   <body>
     <!-- Top Menu -->
@@ -26,16 +27,23 @@
         </ul>
       </nav>
       <div class="user">
-        <img id="userImg" src="https://picsum.photos/id/684/600/400" alt="" />
-        <!-- <a href="#" class="notice"><span class="blind">notice</span></a> -->
-        <div class="menubar">
-          <ul>
-            <li><a href="#">마이페이지</a></li>
-            <li><a href="#">알림</a></li>
-            <li><a href="#">문의하기</a></li>
-            <li class="text-red"><a href="#">로그아웃</a></li>
-          </ul>
-        </div>
+        <!-- 로그인 상태 => 현재 display: none; 상태 -->
+        <img
+          id="userImg"
+          class="user-profile-img"
+          src="https://picsum.photos/id/684/600/400"
+          alt="회원 프로필 이미지"
+        />
+        <!-- 비로그인 상태 -->
+        <button class="login-btn"></button>
+      </div>
+      <div class="menubar">
+        <ul>
+          <li><a href="#">마이페이지</a></li>
+          <li><a href="#">알림</a></li>
+          <li><a href="#">문의하기</a></li>
+          <li class="text-red"><a href="#">로그아웃</a></li>
+        </ul>
       </div>
       <div class="search-bar">
         <form action="#" method="get">
@@ -59,36 +67,7 @@
             <h2>❤️ 산 ❤️</h2>
             <a href="#" class="more">더보기</a>
           </div>
-          <div class="wrap">
-            <div class="item">
-              <a id="itemPath" href="#">
-                <div class="item-info">
-                  <h3 id="itemTitle">itemTitle</h3>
-                  <div class="itemDetail">
-                    <p id="itemContent">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla, corrupti sint illo recusandae itaque aliquid ipsam. Mollitia, nobis? Iure.
-                    </p>
-                    <img id="itemImg" src="./img/gray.png" alt="img" />
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- test code start -->
-            <div class="item">
-              <a id="itemPath" href="#">
-                <div class="item-info">
-                  <h3 id="itemTitle">itemTitle</h3>
-                  <div class="itemDetail">
-                    <p id="itemContent">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla, corrupti sint illo recusandae itaque aliquid ipsam. Mollitia, nobis? Iure.
-                    </p>
-                    <img id="itemImg" src="./img/gray.png" alt="img" />
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- test code end -->
-          </div>
+          <div class="wrap"></div>
         </div>
         <hr />
         <div class="recruit">
@@ -96,36 +75,7 @@
             <h2>❤️ 모집 글 ❤️</h2>
             <a href="#" class="more">더보기</a>
           </div>
-          <div class="wrap">
-            <div class="item">
-              <a id="itemPath" href="#">
-                <div class="item-info">
-                  <h3 id="itemTitle">itemTitle</h3>
-                  <div class="itemDetail">
-                    <p id="itemContent">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla, corrupti sint illo recusandae itaque aliquid ipsam. Mollitia, nobis? Iure.
-                    </p>
-                    <img id="itemImg" src="./img/gray.png" alt="img" />
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- test code start -->
-            <div class="item">
-              <a id="itemPath" href="#">
-                <div class="item-info">
-                  <h3 id="itemTitle">itemTitle</h3>
-                  <div class="itemDetail">
-                    <p id="itemContent">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla, corrupti sint illo recusandae itaque aliquid ipsam. Mollitia, nobis? Iure.
-                    </p>
-                    <img id="itemImg" src="./img/gray.png" alt="img" />
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- test code end -->
-          </div>
+          <div class="wrap"></div>
         </div>
         <hr />
         <div class="review">
@@ -133,36 +83,7 @@
             <h2>❤️ 후기 글 ❤️</h2>
             <a href="#" class="more">더보기</a>
           </div>
-          <div class="wrap">
-            <div class="item">
-              <a id="itemPath" href="#">
-                <div class="item-info">
-                  <h3 id="itemTitle">itemTitle</h3>
-                  <div class="itemDetail">
-                    <p id="itemContent">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla, corrupti sint illo recusandae itaque aliquid ipsam. Mollitia, nobis? Iure.
-                    </p>
-                    <img id="itemImg" src="./img/gray.png" alt="img" />
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- test code start -->
-            <div class="item">
-              <a id="itemPath" href="#">
-                <div class="item-info">
-                  <h3 id="itemTitle">itemTitle</h3>
-                  <div class="itemDetail">
-                    <p id="itemContent">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla, corrupti sint illo recusandae itaque aliquid ipsam. Mollitia, nobis? Iure.
-                    </p>
-                    <img id="itemImg" src="./img/gray.png" alt="img" />
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- test code end -->
-          </div>
+          <div class="wrap"></div>
         </div>
       </div>
     </div>

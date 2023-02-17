@@ -101,10 +101,20 @@ header {
   background-repeat: no-repeat;
   background-size: contain;
 } */
-.user > img {
+.user-profile-img {
+  /* display: none; */
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+.login-btn {
+  display: none;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: url(../svg/login.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .search-bar {
   width: 280px;
@@ -150,4 +160,14 @@ header {
   border: 0;
   background: url(../svg/cancle.svg);
   background-repeat: no-repeat;
+}
+@media screen and (max-width: 480px) {
+  .navbar li {
+    padding: 0 5px;
+  }
+  .navbar li:hover {
+    border-radius: 10px;
+    padding: 5px 5px;
+    background-color: #fff;
+  }
 }

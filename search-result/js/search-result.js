@@ -1,6 +1,6 @@
-const mountainInfo = $(".mountain-info .wrap");
-const recruit = $(".recruit .wrap");
-const review = $(".review .wrap");
+const mountainInfo = $$(".mountain-info .wrap");
+const recruit = $$(".recruit .wrap");
+const review = $$(".review .wrap");
 
 /**
  * @param {String} itemTitle - 제목

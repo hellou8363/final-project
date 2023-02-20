@@ -10,7 +10,7 @@ addEventListener("click", (e) => {
 
   // 검색바에 포커스가 없을 때 입력테스트 삭제버튼 숨기기
   if (e.target.id !== "search") {
-    $$(".cancel").style.display = "none";
+    $$(".search-bar .cancel").style.display = "none";
   } // if
 });
 

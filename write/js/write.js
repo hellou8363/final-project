@@ -109,7 +109,37 @@ mountains.map(
     ).innerHTML += `<option value="${value}">${value}</option>`)
 );
 
-// 이미지 추가 버튼 클릭
-$$('.photo').addEventListener('click', () => {
-  console.log('add photo click')
+// 등록 버튼 이벤트
+$$(".buttons #upload").addEventListener("click", () => {
+  $$(".check-again .upload").style.display = "block";
+})
+
+// 취소 버튼 이벤트
+$$(".buttons #cancle").addEventListener("click", () => {
+  $$(".check-again .cancel").style.display = "block";
+})
+
+// 이미지 추가 버튼 클릭 이벤트
+$$(".photo").addEventListener("click", () => {
+  $$(".add-photo").style.display = "block";
+});
+
+// 이미지 추가 취소 버튼 클릭 이벤트
+$$(".add-photo .cancel").addEventListener("click", () => {
+  $$(".add-photo").style.display = "none";
+});
+
+// 등록 취소 버튼 클릭 이벤트
+$$(".check-again .upload input[type=button]").addEventListener("click", () => {
+  $$(".check-again .upload").style.display = "none";
+})
+
+// 삭제 취소 버튼 클릭 이벤트
+$$(".check-again .cancel input[type=button]").addEventListener("click", () => {
+  $$(".check-again .cancel").style.display = "none";
+})
+
+// 작성 취소(삭제) 버튼 클릭 이벤트
+$$(".check-again .cancel input[type=reset]").addEventListener("click", () => {
+  $$(".check-again .cancel").style.display = "none";
 })

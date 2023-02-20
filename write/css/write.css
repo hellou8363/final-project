@@ -1,0 +1,114 @@
+.container {
+  margin: 100px auto 50px;
+  padding: 50px;
+  width: 880px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.select-mountain {
+  display: block;
+  position: relative;
+}
+.select-mountain::after {
+  width: 30px;
+  height: 20px;
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 240px;
+  display: inline-block;
+  z-index: 0;
+  background: url(../img/bottom-arrow.png);
+  background-repeat: no-repeat;
+}
+select[name=mountainName] {
+  width: 208px;
+  height: 40px;
+  padding: 4px 10px 6px 8px;
+  border: 0;
+  border-bottom: 1px solid lightgray;
+  margin-left: 18px;
+  font-size: 16px;
+  /* position: relative; */
+  z-index: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.title {
+  font-size: 16px;
+}
+label[for=title] {
+  margin-left: 14px;
+}
+#title {
+  width: 500px;
+  border: 0;
+  border-bottom: 1px solid lightgray;
+  padding: 10px 5px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+.detail {
+  display: flex;
+  justify-content: space-around;
+  gap: 150px;
+  margin: 50px;
+}
+.photo {
+  width: 250px;
+  height: 250px;
+  background: url(../img/photo.png);
+  background-repeat: no-repeat;
+  background-size: 250px;
+  border-radius: 50%;
+}
+.wrap  span {
+  width: 65px;
+  display: inline-block;
+  margin: 0px 30px;
+}
+#date,
+#time,
+#member,
+#readyItems,
+#condition {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 20px;
+}
+#text {
+  resize: none;
+  font-size: 20px;
+}
+.text > p {
+  font-weight: bold;
+  font-size: 20px;
+}
+.buttons {
+  display: flex;
+  justify-content: right;
+  gap: 20px;
+}
+.buttons input {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+.buttons input:nth-of-type(1) {
+  background-color: rgb(170, 170, 170);
+}
+.buttons input:nth-last-of-type(1) {
+  background-color: #4EC53D;
+}

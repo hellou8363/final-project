@@ -1,108 +1,3 @@
-/* Desktop */
-@media screen and (min-width: 1100px) {
-  /* rank */
-  .rankers {
-    /* padding: 20px 20px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  .rankers > div {
-    width: 300px;
-    /* height: 300px; */
-    border-radius: 15px;
-    padding: 10px 0 30px;
-    background-color: rgb(168, 255, 226);
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-  }
-  .top1 > .medal-img {
-    width: 50px;
-    height: 50px;
-    background: url(../svg/medal1.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  .top2 > .medal-img {
-    width: 40px;
-    height: 40px;
-    background: url(../svg/medal2.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  .top3 > .medal-img {
-    width: 30px;
-    height: 30px;
-    background: url(../svg/medal3.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  .ranker-img {
-    margin: 20px 0;
-  }
-  .king-img {
-    width: 100px;
-    height: 100px;
-    background: url(../svg/king.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  .mountain-img {
-    width: 100px;
-    height: 70px;
-    margin-top: -30px;
-    background: url(../svg/mountain.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-}
-/* Tablet*/
-@media screen and (max-width: 1099px) {
-  /* rank */
-  .rankers {
-    display: grid;
-    grid-template-rows: repeat(2, 50%);
-    grid-template-columns: repeat(2, 50%);
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  .rankers > div {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background-color: rgb(168, 255, 226);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .ranker-img {
-    margin: 20px 0;
-  }
-  .king-img {
-    width: 100px;
-    height: 100px;
-    background: url(../svg/king.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  .mountain-img {
-    width: 100px;
-    height: 70px;
-    margin-top: -30px;
-    background: url(../svg/mountain.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-}
-
-/* Phone
-@media screen and (max-width: 767px) {
-} */
 /* common */
 img {
   /* 드래그 방지 */
@@ -133,7 +28,6 @@ img {
 .item {
   display: inline-block;
   width: 200px;
-  /* border: 1px solid black; */
   border-radius: 15px;
   padding: 20px;
   margin: 0 10px;
@@ -156,6 +50,15 @@ img {
 #title {
   margin: 10px auto;
 }
+#text {
+  white-space: nowrap;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 .favorite {
   width: 30px;
   height: 30px;
@@ -164,11 +67,38 @@ img {
   background-repeat: no-repeat;
   background-size: contain;
 }
+  /* rank */
+  .rankers {
+    display: grid;
+    grid-template-rows: repeat(1, 220px);
+    grid-template-columns: repeat(4, 220px);
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  .rankers > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #00c71e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .rankers #title {
+    font-size: 14px;
+  }
+  .ranker-img {
+    width: 100px;
+    height: 100px;
+    background: url(../svg/rank.svg);
+    background-repeat: no-repeat;
+  }
 /* mountain-info - 개별 스타일 X */
 /* recruit */
 .user-info {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   gap: 10px;
 }
@@ -218,4 +148,66 @@ img {
   justify-content: center;
   align-items: center;
   gap: 5px;
+}
+/* Tablet*/
+@media screen and (min-width: 481px) and (max-width: 1279px) {
+  /* rank */
+  .rankers {
+    display: grid;
+    grid-template-rows: repeat(2, 250px);
+    grid-template-columns: repeat(2, 250px);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .rankers > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #00c71e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .rankers #title {
+    font-size: 20px;
+  }
+  .ranker-img {
+    width: 100px;
+    height: 100px;
+    background: url(../svg/rank.svg);
+    background-repeat: no-repeat;
+  }
+}
+/* Phone */
+@media screen and (max-width: 480px) {
+  /* rank */
+  .rankers {
+    display: grid;
+    grid-template-rows: repeat(2, 135px);
+    grid-template-columns: repeat(2, 135px);
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  .rankers > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #00c71e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .rankers #title {
+    font-size: 14px;
+  }
+  .ranker-img {
+    width: 50px;
+    height: 50px;
+    background: url(../svg/rank.svg);
+    background-repeat: no-repeat;
+  }
 }

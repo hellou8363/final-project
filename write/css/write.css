@@ -149,7 +149,7 @@ label[for="title"] {
   font-size: 20px;
   font-weight: bold;
 }
-.cancel {
+.add-photo .cancel {
   display: block;
   width: 25px;
   height: 25px;

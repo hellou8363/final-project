@@ -1,0 +1,45 @@
+
+footer {
+  width: 100vw;
+  background-color: #43a047;
+}
+.footer {
+  text-align: center;
+  padding: 30px 50px;
+}
+.footer li {
+  position: relative;
+  display: inline;
+  padding: 0 7px 0 10px;
+  white-space: nowrap;
+}
+.footer li:before {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background-color: #dbdbdb;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+.footer li:first-child:before {
+  width: 0;
+}
+.footer address {
+  padding-top: 15px;
+}
+.support {
+  position: absolute;
+  right: 10px;
+  bottom: 25px;
+  padding: 10px;
+  display: flex;
+}
+.link-bar {
+  margin: 0 30px;
+  font-size: 2rem;
+}
+.footer a:hover {
+  transition: all 400ms ease;
+  color: #ffffff;
+}

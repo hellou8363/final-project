@@ -116,7 +116,7 @@ $$(".buttons #upload").addEventListener("click", () => {
 
 // 취소 버튼 이벤트
 $$(".buttons #cancle").addEventListener("click", () => {
-  $$(".check-again .unload").style.display = "block";
+  $$(".check-again .cancel").style.display = "block";
 });
 
 // 이미지 추가 버튼 클릭 이벤트
@@ -135,37 +135,34 @@ $$(".check-again .upload input[type=button]").addEventListener("click", () => {
 });
 
 // 삭제 취소 버튼 클릭 이벤트
-$$(".check-again .unload input[type=button]").addEventListener("click", () => {
-  $$(".check-again .unload").style.display = "none";
+$$(".check-again .cancel input[type=button]").addEventListener("click", () => {
+  $$(".check-again .cancel").style.display = "none";
 });
 
 // 작성 취소(삭제) 버튼 클릭 이벤트
-$$(".check-again .unload input[type=reset]").addEventListener("click", () => {
-  $$(".check-again .unload").style.display = "none";
+$$(".check-again .cancel input[type=reset]").addEventListener("click", () => {
+  $$(".check-again .cancel").style.display = "none";
 });
+
+// ------------------------------------------------------------ 수정 중
 
 const getTextFile = () => {
   const input = document.createElement("input");
-
   input.type = "file";
   input.accept = "image/*";
-
-  input.onchange = (event) => {
+  input.onchange = function (event) {
     processFile(event.target.files[0]);
+    console.log(event);
   };
-
   input.click();
 };
 
 const processFile = (file) => {
   const reader = new FileReader();
-
   reader.readAsDataURL(file);
-
   reader.onload = function () {
-    $$(".drag-and-drop").innerHTML = `<p>${file.name}</p>`;
-
-    imgPath = `<img name="ImagePath" src="${reader.result}" value="${reader.result}" alt="모집 글 작성 폼 이미지"></img>
+    $$(".photo").innerHTML = `
+    <img name="ImagePath" src="${reader.result}" value="${reader.result}" alt="모집 글 작성 폼 이미지"></img>
     <input type="text" name="imagePath" id="imagePath" value="${reader.result}">`;
   };
 };
@@ -174,39 +171,19 @@ const processFile = (file) => {
 $$(".drag-and-drop").ondrop = (e) => {
   e.preventDefault();
 
+  console.log("e.dataTransfer: " + e.dataTransfer)
   const files = [...e.dataTransfer?.files];
+  console.log(files);
 
   $$(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
-
-  handleUpdate([...files]);
 };
 
-let imgPath; // 업로드 이미지 임시 저장 변수
-
-// 드래그 앤 드롭 한 이미지를 imgPath에 담기
-const handleUpdate = (files) => {
-  $$(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
-
-  files.forEach((file) => {
-    const reader = new FileReader();
-
-    reader.addEventListener("load", (e) => {
-      imgPath = `<img name="ImagePath" src="${e.target.result}" value="${e.target.result}" alt="모집 글 작성 폼 이미지"></img>
-      <input type="text" name="imagePath" id="imagePath" value="${e.target.result}">`;
-    });
-
-    reader.readAsDataURL(file);
-  });
-};
-
-// 기본 이벤트 방지
 $$(".drag-and-drop").ondragover = (e) => e.preventDefault();
 $$(".drag-and-drop").ondragleave = (e) => e.preventDefault();
 
 // 변경 버튼 클릭 이벤트
 $$(".drag-and-drop + button").onclick = () => {
   $$(".add-photo").style.display = "none";
-  $$(".photo").innerHTML = imgPath ?? "";
 };
 
 // 드래그 앤 드롭 대신 클릭으로 업로드 할 때

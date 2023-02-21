@@ -201,7 +201,7 @@ label[for="title"] {
 }
 /* 재확인버튼 style */
 .check-again .upload,
-.check-again .unload {
+.check-again .cancel {
   display: none;
   width: 300px;
   border: 1px solid gray;
@@ -220,7 +220,7 @@ label[for="title"] {
   height: 150px;
 }
 .check-again .upload > input,
-.check-again .unload > input {
+.check-again .cancel > input {
   display: inline-block;
   width: 100px;
   height: 35px;

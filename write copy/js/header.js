@@ -10,9 +10,9 @@ addEventListener("click", (e) => {
   } // if
 
   // 검색바에 포커스가 없을 때 입력테스트 삭제버튼 숨기기
-  // if (e.target.id !== "search") {
-  //   $$(".search-bar .cancel").style.display = "none";
-  // } // if
+  if (e.target.id !== "search") {
+    $$(".cancel").style.display = "none";
+  } // if
 });
 
 // 회원 이미지 클릭 시 메뉴바 표시

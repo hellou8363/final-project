@@ -24,8 +24,8 @@ $$("#userImg").addEventListener("click", () => {
   }
 });
 
-// 검색바에 포커스가 있을 때 입력테스트 삭제버튼 표시
-$$("#search").addEventListener("click", () => {
-  console.log("click");
-  $$(".cancel").style.display = "block";
-});
+// // 검색바에 포커스가 있을 때 입력테스트 삭제버튼 표시
+// $$("#search").addEventListener("click", () => {
+//   console.log("click");
+//   $$(".cancel").style.display = "block";
+// });

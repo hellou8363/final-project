@@ -1,6 +1,6 @@
 
 footer {
-  width: 100%;
+  width: 100vw;
   background-color: #43a047;
 }
 .footer {
@@ -39,7 +39,7 @@ footer {
   margin: 0 30px;
   font-size: 2rem;
 }
-a:hover {
+.footer a:hover {
   transition: all 400ms ease;
   color: #ffffff;
 }

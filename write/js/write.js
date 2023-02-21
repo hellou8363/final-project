@@ -112,12 +112,12 @@ mountains.map(
 // 등록 버튼 이벤트
 $$(".buttons #upload").addEventListener("click", () => {
   $$(".check-again .upload").style.display = "block";
-})
+});
 
 // 취소 버튼 이벤트
 $$(".buttons #cancle").addEventListener("click", () => {
   $$(".check-again .cancel").style.display = "block";
-})
+});
 
 // 이미지 추가 버튼 클릭 이벤트
 $$(".photo").addEventListener("click", () => {
@@ -132,14 +132,58 @@ $$(".add-photo .cancel").addEventListener("click", () => {
 // 등록 취소 버튼 클릭 이벤트
 $$(".check-again .upload input[type=button]").addEventListener("click", () => {
   $$(".check-again .upload").style.display = "none";
-})
+});
 
 // 삭제 취소 버튼 클릭 이벤트
 $$(".check-again .cancel input[type=button]").addEventListener("click", () => {
   $$(".check-again .cancel").style.display = "none";
-})
+});
 
 // 작성 취소(삭제) 버튼 클릭 이벤트
 $$(".check-again .cancel input[type=reset]").addEventListener("click", () => {
   $$(".check-again .cancel").style.display = "none";
-})
+});
+
+// ------------------------------------------------------------ 수정 중
+
+const getTextFile = () => {
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = "image/*";
+  input.onchange = function (event) {
+    processFile(event.target.files[0]);
+    console.log(event);
+  };
+  input.click();
+};
+
+const processFile = (file) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function () {
+    $$(".photo").innerHTML = `
+    <img name="ImagePath" src="${reader.result}" value="${reader.result}" alt="모집 글 작성 폼 이미지"></img>
+    <input type="text" name="imagePath" id="imagePath" value="${reader.result}">`;
+  };
+};
+
+// 드래그 앤 드롭 이벤트
+$$(".drag-and-drop").ondrop = (e) => {
+  e.preventDefault();
+
+  const files = [...e.dataTransfer?.files];
+  console.log(files);
+
+  $$(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
+};
+
+$$(".drag-and-drop").ondragover = (e) => e.preventDefault();
+$$(".drag-and-drop").ondragleave = (e) => e.preventDefault();
+
+// 변경 버튼 클릭 이벤트
+$$(".drag-and-drop + button").onclick = () => {
+  $$(".add-photo").style.display = "none";
+};
+
+// 드래그 앤 드롭 대신 클릭으로 업로드 할 때
+$$(".drag-and-drop").onclick = () => getTextFile();

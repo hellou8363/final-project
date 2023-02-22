@@ -126,3 +126,8 @@ for(let i = 0; i < 3; i++) {
     mountains.movePath
   );
 } // for
+
+$$(".recruit .wrap").addEventListener("wheel", (e) => {
+  e.preventDefault();
+  e.currentTarget.scrollLeft += e.deltaY;
+});

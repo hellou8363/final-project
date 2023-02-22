@@ -9,13 +9,14 @@ addEventListener("click", (e) => {
   } // if
 
   // 검색바에 포커스가 없을 때 입력테스트 삭제버튼 숨기기
-  if (e.target.id !== "search") {
+  // 글 작성 폼에는 검색바가 없으므로 if로 null 체크
+  if (e.target.id !== "search" && $$(".search-bar .cancel") != null) {
     $$(".search-bar .cancel").style.display = "none";
   } // if
 });
 
 // 회원 이미지 클릭 시 메뉴바 표시
-$$("#userImg").addEventListener("click", () => {
+$$("#userImg")?.addEventListener("click", () => {
   if ($$("#userImg").classList.toggle("toggle")) {
     $$(".menubar").style.display = "block";
   } else {
@@ -24,7 +25,7 @@ $$("#userImg").addEventListener("click", () => {
 });
 
 // 검색바에 포커스가 있을 때 입력테스트 삭제버튼 표시
-$$("#search").addEventListener("click", () => {
+$$("#search")?.addEventListener("click", () => {
   console.log("click");
   $$(".cancel").style.display = "block";
 });

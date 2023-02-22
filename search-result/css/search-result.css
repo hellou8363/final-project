@@ -3,7 +3,7 @@
   width: 70%;
   border: 1px solid lightgray;
   border-radius: 15px;
-  margin: 100px auto 100px;
+  margin: 100px auto;
   padding: 50px;
   background-color: #fff;
 }
@@ -70,6 +70,7 @@
   display: flex;
   flex-direction: row;
   justify-content: left;
+  overflow-x: hidden;
 }
 .recruit .item {
   display: inline-block;

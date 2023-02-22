@@ -116,8 +116,8 @@ label[for="title"] {
   color: #fff;
 }
 .buttons button:nth-of-type(1),
-.check-again .upload > input[type="reset"],
-.check-again .cancel > input[type="button"] {
+.check-again .unload > input[type="button"],
+.check-again .upload > input[type="button"] {
   background-color: rgb(170, 170, 170);
 }
 .buttons button:nth-last-of-type(1),
@@ -216,7 +216,7 @@ label[for="title"] {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.check-again .cancel {
+.check-again .upload {
   height: 150px;
 }
 .check-again .upload > input,
@@ -232,6 +232,6 @@ label[for="title"] {
   color: #fff;
 }
 
-.check-again .cancel input[type="reset"] {
+.check-again .unload input[type="reset"] {
   background-color: rgb(255, 37, 37);
 }

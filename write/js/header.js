@@ -2,7 +2,6 @@ const $$ = (selector) => document.querySelector(selector);
 
 // Header Event init
 addEventListener("click", (e) => {
-  console.log(e.target);
   // 회원 메뉴바가 열린상태에서 다른 곳을 클릭하면 메뉴바 숨기기
   if (e.target.id !== "userImg") {
     $$("#userImg").classList.remove("toggle");

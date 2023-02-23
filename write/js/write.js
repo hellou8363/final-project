@@ -101,6 +101,12 @@ const mountains = [
   "희양산",
 ];
 
+let imgPath; // 업로드 이미지 임시 저장 변수
+
+const date = new Date();
+const today = `${date.getFullYear()}-${date.getMonth() < 10 ? "0" + (date.getMonth() + 1) : date.getMonth()}-${date.getDate()}`
+$$("#date").min = today;
+
 // select에 산 이름 출력
 mountains.map(
   (value) =>
@@ -176,8 +182,6 @@ $$(".drag-and-drop").ondrop = (e) => {
   handleUpdate([...files]);
 };
 
-let imgPath; // 업로드 이미지 임시 저장 변수
-
 // 드래그 앤 드롭 한 이미지를 imgPath에 담기
 const handleUpdate = (files) => {
   $$(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
@@ -201,7 +205,6 @@ $$(".unload input[type=reset]").onclick = () => {
     elem.removeChild(elem.firstChild);
   } // while
 }
-
 
 // 기본 이벤트 방지
 $$(".drag-and-drop").ondragover = (e) => e.preventDefault();
@@ -289,3 +292,6 @@ const formCheck = () => {
     $$(".check-again .upload").style.display = "block";
   };
 };
+
+// 날짜 지정 시 이전 날짜 지정 방지 이벤트
+// const date = 

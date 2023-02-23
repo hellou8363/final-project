@@ -102,9 +102,13 @@ const mountains = [
 ];
 
 let imgPath; // 업로드 이미지 임시 저장 변수
+let isReadyUpload = false; // 파일 업로드 가능여부
 
+// 날짜 지정 시 이전 날짜 지정 방지 이벤트
 const date = new Date();
-const today = `${date.getFullYear()}-${date.getMonth() < 10 ? "0" + (date.getMonth() + 1) : date.getMonth()}-${date.getDate()}`
+const today = `${date.getFullYear()}-${
+  date.getMonth() < 10 ? "0" + (date.getMonth() + 1) : date.getMonth()
+}-${date.getDate()}`;
 $$("#date").min = today;
 
 // select에 산 이름 출력
@@ -122,6 +126,13 @@ $$("#cancle").addEventListener("click", () => {
 
 // 이미지 추가 버튼 클릭 이벤트
 $$(".photo").addEventListener("click", () => {
+  $$(".drag-and-drop").innerHTML = `
+  <div class="picture"></div>
+  <p>
+    여기로 이미지를 드래그하거나<br />
+    파일을 업로드 하세요.
+    (최대 20MB)
+  </p>`;
   $$(".add-photo").style.display = "block";
 });
 
@@ -149,9 +160,21 @@ const getTextFile = () => {
   const input = document.createElement("input");
 
   input.type = "file";
-  input.accept = "image/*";
+  input.accept = ".jpg, .jpeg, .png";
 
   input.onchange = (event) => {
+    // 업로드 파일 용량 체크
+    if (isFileMaxSize(event.target.files)) {
+      return false;
+    } // if
+
+    // 파일형식 체크
+    if (isRightFile(event.target.files)) {
+      return false;
+    } // if
+
+    // 위 조건을 모두 통과할 경우
+    isReadyUpload = true;
     processFile(event.target.files[0]);
   };
 
@@ -171,11 +194,55 @@ const processFile = (file) => {
   };
 };
 
+// 업로드 파일 용량 체크
+const isFileMaxSize = (files) => {
+  if (files[0].size > 20971520) {
+    $$(".drag-and-drop").innerHTML = `
+    <p>최대 업로드 용량은 20MB입니다.<br>
+    현재 파일의 용량은 ${Math.floor((files[0].size / 1048576) * 10) / 10}입니다.
+    </p>`;
+
+    isReadyUpload = false;
+    return true;
+  } // if
+};
+
+// 파일형식 체크
+const isRightFile = (files) => {
+  if (
+    files[0].type !== "image/jpeg" &&
+    files[0].type !== "image/png" &&
+    files[0].type !== "image/jpg"
+  ) {
+    $$(".drag-and-drop").innerHTML = `
+    <p>업로드 가능한 파일 형식은<br>
+    .jpg, .jpeg, .png입니다.
+    </p>`;
+
+    isReadyUpload = false;
+    return true;
+  } // if
+};
+
 // 드래그 앤 드롭 이벤트
+// 업로드 최대 용량: 20,971,520byte(20MB)
 $$(".drag-and-drop").ondrop = (e) => {
   e.preventDefault();
 
   const files = [...e.dataTransfer?.files];
+
+  // 업로드 파일 용량 체크
+  if (isFileMaxSize(files)) {
+    return false;
+  } // if
+
+  // 파일형식 체크
+  if (isRightFile(files)) {
+    return false;
+  } // if
+
+  // 위 조건을 모두 통과할 경우
+  isReadyUpload = true;
 
   $$(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
 
@@ -201,17 +268,21 @@ const handleUpdate = (files) => {
 // 작성 중 취소 -> 예(Red Button)이벤트
 $$(".unload input[type=reset]").onclick = () => {
   const elem = $$(".photo");
+
   while (elem.firstChild) {
     elem.removeChild(elem.firstChild);
   } // while
-}
+};
 
-// 기본 이벤트 방지
+// 드래그 앤 드롭으로 파일 업로드 하기 위한 기본 이벤트 방지
 $$(".drag-and-drop").ondragover = (e) => e.preventDefault();
 $$(".drag-and-drop").ondragleave = (e) => e.preventDefault();
 
 // 변경 버튼 클릭 이벤트
-$$(".drag-and-drop + button").onclick = () => {
+$$(".drag-and-drop + button").onclick = (e) => {
+  if (imgPath === undefined || !isReadyUpload) {
+    return false;
+  }
   $$(".add-photo").style.display = "none";
   $$(".photo").innerHTML = imgPath ?? "";
 };
@@ -293,5 +364,10 @@ const formCheck = () => {
   };
 };
 
-// 날짜 지정 시 이전 날짜 지정 방지 이벤트
-// const date = 
+// Enter키로 인한 submit 방지 이벤트
+document.forms[0].addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && e.target.id !== "text") {
+    e.preventDefault();
+    return false;
+  } // if
+});

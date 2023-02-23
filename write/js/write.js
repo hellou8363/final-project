@@ -161,7 +161,7 @@ const processFile = (file) => {
     $$(".drag-and-drop").innerHTML = `<p>${file.name}</p>`;
 
     imgPath = `<img name="ImagePath" src="${reader.result}" value="${reader.result}" alt="모집 글 작성 폼 이미지"></img>
-    <input type="text" name="imagePath" id="imagePath" value="${reader.result}">`;
+    <input type="hidden" name="imagePath" id="imagePath" value="${reader.result}">`;
   };
 };
 
@@ -193,6 +193,15 @@ const handleUpdate = (files) => {
     reader.readAsDataURL(file);
   });
 };
+
+// 작성 중 취소 -> 예(Red Button)이벤트
+$$(".unload input[type=reset]").onclick = () => {
+  const elem = $$(".photo");
+  while (elem.firstChild) {
+    elem.removeChild(elem.firstChild);
+  } // while
+}
+
 
 // 기본 이벤트 방지
 $$(".drag-and-drop").ondragover = (e) => e.preventDefault();
@@ -249,21 +258,18 @@ const formCheck = () => {
   } // if
 
   if (form.elements.title.value.length < 2) {
-    // 제목
     alert();
     alertWindow(title);
     return false;
   } // if
 
   if (form.elements.date.value === "") {
-    // 날짜
     alert();
     alertWindow(date);
     return false;
   } // if
 
   if (form.elements.time.value === "") {
-    // 시간
     alert();
     alertWindow(time);
     return false;

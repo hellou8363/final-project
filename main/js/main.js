@@ -18,7 +18,7 @@ const mountainInfoTemplate = (mountainName, text, favoriteCount) => `
 // 휠 스크롤 시 가로 슬라이드 구현
 $$(".mountain-info .wrap").addEventListener("wheel", (e) => {
   e.preventDefault();
-  e.currentTarget.scrollLeft += e.deltaY;
+  e.currentTarget.scrollLeft += e.deltaY * 2;
 });
 
 $$(".recruit .wrap").addEventListener("wheel", (e) => {

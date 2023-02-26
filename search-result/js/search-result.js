@@ -128,6 +128,8 @@ for(let i = 0; i < 3; i++) {
 } // for
 
 $$(".recruit .wrap").addEventListener("wheel", (e) => {
-  e.preventDefault();
-  e.currentTarget.scrollLeft += e.deltaY;
+  if (window.innerWidth < 1000) {
+    e.preventDefault();
+    e.currentTarget.scrollLeft += e.deltaY;
+  } // if
 });

@@ -30,3 +30,20 @@ $$(".review .wrap").addEventListener("wheel", (e) => {
   e.preventDefault();
   e.currentTarget.scrollLeft += e.deltaY * 2;
 });
+
+// top (scroll이 200이상 일때 top버튼 노출)
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 100) {
+    $(".scrollToTop").fadeIn();
+    $(".chat").fadeIn();
+  } else {
+    $(".scrollToTop").fadeOut();
+    $(".chat").fadeOut();
+  }
+});
+
+// 위로 올라가는 부드러운 애니메이션
+$(".scrollToTop, .chat").click(function () {
+  $("html, body").animate({ scrollTop: 0 }, 400);
+  return false;
+});

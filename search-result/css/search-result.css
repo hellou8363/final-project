@@ -1,3 +1,12 @@
+.total-wrap {
+  min-width: 320px;
+  max-width: 1024px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* container */
 .container {
   width: 70%;

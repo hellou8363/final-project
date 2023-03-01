@@ -16,120 +16,122 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
   </head>
   <body>
-    <!-- Top Menu -->
-    <header>
-      <div class="logo">
-        <a href="./index.html"><h1 class="blind">We Go</h1></a>
-      </div>
-      <nav>
-        <ul class="navbar">
-          <li><a href="#">산정보</a></li>
-          <li><a href="#">등산후기</a></li>
-          <li><a href="#">랭킹</a></li>
-          <li><a href="#">모집</a></li>
-        </ul>
-      </nav>
-      <div class="user">
-        <!-- 로그인 상태 => 현재 display: none; 상태 -->
-        <img
-          id="userImg"
-          class="user-profile-img"
-          src="https://picsum.photos/id/684/600/400"
-          alt="회원 프로필 이미지"
-        />
-        <!-- 비로그인 상태 -->
-        <button class="login-btn"></button>
-        <div class="menubar">
-          <ul>
-            <li><a href="#">마이페이지</a></li>
-            <li><a href="#">알림</a></li>
-            <li><a href="#">문의하기</a></li>
-            <li class="text-red"><a href="#">로그아웃</a></li>
+    <div class="total-wrap">
+      <!-- Top Menu -->
+      <header>
+        <div class="logo">
+          <a href="./index.html"><h1 class="blind">We Go</h1></a>
+        </div>
+        <nav>
+          <ul class="navbar">
+            <li><a href="#">산정보</a></li>
+            <li><a href="#">등산후기</a></li>
+            <li><a href="#">랭킹</a></li>
+            <li><a href="#">모집</a></li>
           </ul>
-        </div>
-      </div>
-      <div class="search-bar">
-        <form action="#" method="get">
-          <button class="search-icon" type="submit"></button>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            value=""
-            placeholder="Search"
+        </nav>
+        <div class="user">
+          <!-- 로그인 상태 => 현재 display: none; 상태 -->
+          <img
+            id="userImg"
+            class="user-profile-img"
+            src="https://picsum.photos/id/684/600/400"
+            alt="회원 프로필 이미지"
           />
-          <button class="cancel" type="reset"></button>
-        </form>
+          <!-- 비로그인 상태 -->
+          <button class="login-btn"></button>
+          <div class="menubar">
+            <ul>
+              <li><a href="#">마이페이지</a></li>
+              <li><a href="#">알림</a></li>
+              <li><a href="#">문의하기</a></li>
+              <li class="text-red"><a href="#">로그아웃</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="search-bar">
+          <form action="#" method="get">
+            <button class="search-icon" type="submit"></button>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              value=""
+              placeholder="Search"
+            />
+            <button class="cancel" type="reset"></button>
+          </form>
+        </div>
+      </header>
+      <!-- Contents -->
+      <div class="container">
+        <div class="out-line">
+          <div class="mountain-info">
+            <div class="info-title">
+              <h2>❤️ 산 ❤️</h2>
+              <a href="#" class="more">더보기</a>
+            </div>
+            <div class="wrap"></div>
+          </div>
+          <hr />
+          <div class="recruit">
+            <div class="info-title">
+              <h2>❤️ 모집 글 ❤️</h2>
+              <a href="#" class="more">더보기</a>
+            </div>
+            <div class="wrap"></div>
+          </div>
+          <hr />
+          <div class="review">
+            <div class="info-title">
+              <h2>❤️ 후기 글 ❤️</h2>
+              <a href="#" class="more">더보기</a>
+            </div>
+            <div class="wrap"></div>
+          </div>
+        </div>
+        <a href="#" class="scrollToTop">
+          <img src="svg/top.svg" />
+        </a>
+        <a href="#" class="chat">
+          <img src="svg/chat.svg" />
+        </a>
       </div>
-    </header>
-    <!-- Contents -->
-    <div class="container">
-      <div class="out-line">
-        <div class="mountain-info">
-          <div class="info-title">
-            <h2>❤️ 산 ❤️</h2>
-            <a href="#" class="more">더보기</a>
+      <!-- Footer -->
+      <footer>
+        <div class="footer">
+          <ul>
+            <li><a href="#">사이트 도움말</a></li>
+            <li><a href="#">사이트 이용약관</a></li>
+            <li>
+              <a href="#"><strong>개인정보취급방침</strong></a>
+            </li>
+            <li><a href="#">책임의 한계와 법적고지</a></li>
+            <li><a href="#">게시중단요청서비스</a></li>
+            <li><a href="#">고객센터</a></li>
+          </ul>
+          <address>
+            Copyright ©
+            <a href="http://wego.co.kr"><strong>Wego</strong></a>
+            All Rights Reserved.
+          </address>
+          <!-- 끝에 우리 아이콘바로가기 키워드 만들기 -->
+          <div class="support">
+            <span class="link-bar">
+              <a
+                href="https://www.figma.com/file/4Gfranq8Iqz4pSebwzUc1W/Final-project?node-id=0%3A1&t=UILOPhDRyS6LJiQW-1"
+                target="_blank"
+                ><i class="fab fa-figma"></i
+              ></a>
+              <a
+                href="https://github.com/KH-Q-peaker?tab=repositories"
+                target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+            </span>
           </div>
-          <div class="wrap"></div>
         </div>
-        <hr />
-        <div class="recruit">
-          <div class="info-title">
-            <h2>❤️ 모집 글 ❤️</h2>
-            <a href="#" class="more">더보기</a>
-          </div>
-          <div class="wrap"></div>
-        </div>
-        <hr />
-        <div class="review">
-          <div class="info-title">
-            <h2>❤️ 후기 글 ❤️</h2>
-            <a href="#" class="more">더보기</a>
-          </div>
-          <div class="wrap"></div>
-        </div>
-      </div>
-      <a href="#" class="scrollToTop">
-        <img src="svg/top.svg">
-      </a>
-      <a href="#" class="chat">
-        <img src="svg/chat.svg">
-      </a>
+      </footer>
     </div>
-    <!-- Footer -->
-    <footer>
-      <div class="footer">
-        <ul>
-          <li><a href="#">사이트 도움말</a></li>
-          <li><a href="#">사이트 이용약관</a></li>
-          <li>
-            <a href="#"><strong>개인정보취급방침</strong></a>
-          </li>
-          <li><a href="#">책임의 한계와 법적고지</a></li>
-          <li><a href="#">게시중단요청서비스</a></li>
-          <li><a href="#">고객센터</a></li>
-        </ul>
-        <address>
-          Copyright ©
-          <a href="http://wego.co.kr"><strong>Wego</strong></a>
-          All Rights Reserved.
-        </address>
-        <!-- 끝에 우리 아이콘바로가기 키워드 만들기 -->
-        <div class="support">
-          <span class="link-bar">
-            <a
-              href="https://www.figma.com/file/4Gfranq8Iqz4pSebwzUc1W/Final-project?node-id=0%3A1&t=UILOPhDRyS6LJiQW-1"
-              target="_blank"
-              ><i class="fab fa-figma"></i
-            ></a>
-            <a
-              href="https://github.com/KH-Q-peaker?tab=repositories"
-              target="_blank"
-              ><i class="fab fa-github"></i
-            ></a>
-          </span>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>

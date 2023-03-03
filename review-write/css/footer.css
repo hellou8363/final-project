@@ -3,9 +3,12 @@ footer {
   background-color: #43a047;
 }
 .footer {
+  min-width: 320px;
+  max-width: 1024px;
   text-align: center;
-  padding: 30px 50px;
+  padding: 30px;
   position: relative;
+  margin: auto;
 }
 .footer li {
   position: relative;
@@ -33,9 +36,10 @@ footer {
 }
 .link-bar {
   display: flex;
+  flex-direction: row;
   position: absolute;
   bottom: 30px;
-  right: 50px;
+  left: 140px;
 }
 .footer a:hover {
   transition: all 400ms ease;

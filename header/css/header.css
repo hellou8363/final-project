@@ -36,6 +36,10 @@ header {
   position: relative;
   background-color: #DEEDCB;
 }
+header div.logoDiv,div.user {
+  width: 200px;
+}
+
 .logo {
   display: block;
   width: 180px;
@@ -66,7 +70,8 @@ header {
 }
 .user {
   position: relative;
-  margin: 0px 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 .menubar {
   display: none;
@@ -77,8 +82,8 @@ header {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
   padding: 10px 10px 30px;
   position: absolute;
-  top: 40px;
-  right: 20px;
+  top: 25px;
+  right: 25px;
   background-color: #fff;
   z-index: 2;
 }
@@ -150,7 +155,13 @@ header {
   background: url(../svg/cancle.svg);
   background-repeat: no-repeat;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 665px) {
+  header div.logoDiv,div.user {
+    width: 50px;
+
+    margin: 0 10px;
+  }
+
   .logo {
     width: 35px;
     height: 35px;
@@ -169,6 +180,8 @@ header {
   }
   .navbar li {
     padding: 0 5px;
+
+    font-size: 14px;
   }
   .navbar li:hover {
     border-radius: 10px;

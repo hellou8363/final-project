@@ -37,7 +37,7 @@ header {
   background-color: #DEEDCB;
 }
 header div.logoDiv,div.user {
-  width: 200px;
+  width: 180px;
 }
 
 .logo {
@@ -49,6 +49,10 @@ header div.logoDiv,div.user {
   background-size: contain;
   cursor: pointer;
 }
+.logo:hover{
+  z-index: 3;
+  transform: scale(1.05);
+}
 .navbar {
   width: 100%;
   display: flex;
@@ -59,19 +63,29 @@ header div.logoDiv,div.user {
 }
 .navbar li {
   display: inline-block;
-  padding: 0 30px;
+  padding: 0 25px;
   font-weight: bold;
   font-size: 16px;
 }
 .navbar li:hover {
   border-radius: 20px;
-  padding: 10px 30px;
+  padding: 10px 25px;
   background-color: #fff;
+
+  z-index: 1;
+	transform: scale(1.1);
 }
 .user {
   position: relative;
   display: flex;
   justify-content: flex-end;
+}
+.user > img,.user > button{
+  margin: 0px 10px 0px; 
+}
+.user > img:hover,.user > button:hover{
+  z-index: 1;
+	transform: scale(1.1);
 }
 .menubar {
   display: none;
@@ -88,12 +102,26 @@ header div.logoDiv,div.user {
   z-index: 2;
 }
 .menubar li {
-  margin: 20px 10px;
+  margin: 15px 5px;
+}
+.menubar li a{
+  padding: 5px 5px;
+}
+.menubar li a:hover{
+  z-index: 3;
+
+  border-radius: 10px;
+  background-color: rgba(78, 197, 61, 1);
+  color: #fff;
 }
 .menubar li:nth-last-of-type(1) > a {
   display: inline-block;
   margin-top: 20px;
-  color: red;
+  color: #F14A4A
+}
+.menubar li:nth-last-of-type(1) > a:hover {
+  background-color: #F14A4A;
+  color: #fff;
 }
 .user-profile-img {
   /* display: none; */
@@ -103,8 +131,8 @@ header div.logoDiv,div.user {
 }
 .login-btn {
   display: none;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border: 0;
   background: url(../svg/login.svg);
   background-repeat: no-repeat;
@@ -155,33 +183,42 @@ header div.logoDiv,div.user {
   background: url(../svg/cancle.svg);
   background-repeat: no-repeat;
 }
-@media screen and (max-width: 665px) {
+@media screen and (max-width: 768px) {
   header div.logoDiv,div.user {
-    width: 50px;
+    width: 40px;
 
-    margin: 0 10px;
+    margin: 0 5px;
   }
 
   .logo {
-    width: 35px;
-    height: 35px;
+    width: 33px;
+    height: 33px;
     background: url(../svg/main-icon.svg);
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
   }
+  .navbar li {
+    padding: 0 5px;
+
+    /* font-size: 16px; */
+    font-size: 14px;
+  }
+  .user > img,.user > button{
+    margin: 0px;
+  }
+  .user-profile-img {
+    /* display: none; */
+    width: 33px;
+    height: 33px;
+  }
   .login-btn {
-    width: 25px;
-    height: 25px;
+    width: 33px;
+    height: 33px;
     border: 0;
     background: url(../svg/login.svg);
     background-repeat: no-repeat;
     background-size: contain;
-  }
-  .navbar li {
-    padding: 0 5px;
-
-    font-size: 14px;
   }
   .navbar li:hover {
     border-radius: 10px;

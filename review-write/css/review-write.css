@@ -7,17 +7,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 15px;
 }
 .container {
-  margin: 50px auto;
+  margin: auto;
   padding: 50px;
-  width: 880px;
+  width: 100%;
   border: 1px solid gray;
   border-radius: 10px;
   background-color: #fffffff2;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   position: relative;
 }
 .select-mountain {
@@ -43,16 +44,12 @@ select[name="mountainName"] {
   border: 0;
   border-bottom: 1px solid lightgray;
   margin-left: 18px;
-  font-size: 16px;
   position: relative;
   z-index: 1;
   background-color: #ffffff00;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-.title {
-  font-size: 16px;
 }
 label[for="title"] {
   margin-left: 14px;
@@ -63,7 +60,6 @@ label[for="title"] {
   border-bottom: 1px solid lightgray;
   padding: 10px 5px;
   margin-left: 20px;
-  font-size: 20px;
 }
 .detail {
   display: flex;
@@ -98,13 +94,11 @@ label[for="title"] {
   box-sizing: border-box;
   padding: 10px;
   resize: none;
-  font-size: 20px;
   overflow: scroll;
   overflow-x: hidden;
 }
 .text > p {
   font-weight: bold;
-  font-size: 20px;
 }
 .buttons {
   display: flex;
@@ -117,7 +111,6 @@ label[for="title"] {
   height: 50px;
   border: 0;
   border-radius: 10px;
-  font-size: 16px;
   font-weight: bold;
   color: #fff;
 }
@@ -159,7 +152,6 @@ label[for="title"] {
   background-repeat: no-repeat;
 }
 .folder-icon + span {
-  font-size: 20px;
   font-weight: bold;
 }
 .add-photo .cancel {
@@ -199,7 +191,6 @@ label[for="title"] {
   height: 50px;
   border: 0;
   border-radius: 10px;
-  font-size: 16px;
   font-weight: bold;
   color: #fff;
   background-color: #4ec53d;
@@ -210,7 +201,6 @@ label[for="title"] {
 .check-again .unload {
   display: none;
   width: 300px;
-  /* border: 1px solid gray; */
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   padding: 30px;
@@ -233,7 +223,6 @@ label[for="title"] {
   border: 0;
   border-radius: 10px;
   margin: 30px 10px;
-  font-size: 16px;
   font-weight: bold;
   color: #fff;
 }
@@ -260,7 +249,6 @@ label[for="title"] {
 }
 @media screen and (min-width: 750px) and (max-width: 1050px) {
   .container {
-    padding: 20px;
     box-sizing: border-box;
   }
   #title {
@@ -269,7 +257,6 @@ label[for="title"] {
     border-bottom: 1px solid lightgray;
     padding: 10px 5px;
     margin-left: 20px;
-    font-size: 20px;
   }
   .wrap span {
     display: inline-block;
@@ -279,7 +266,7 @@ label[for="title"] {
 @media screen and (max-width: 749px) {
   .container {
     padding: 20px;
-    width: 350px;
+    width: 100%;
     box-sizing: border-box;
   }
   #title {
@@ -300,7 +287,6 @@ label[for="title"] {
     background-size: 30px;
   }
   .folder-icon + span {
-    font-size: 16px;
     font-weight: bold;
   }
   .picture {
@@ -324,7 +310,6 @@ label[for="title"] {
     height: 30px;
     border: 0;
     border-radius: 10px;
-    font-size: 16px;
     font-weight: bold;
     color: #fff;
     background-color: #4ec53d;

@@ -9,17 +9,19 @@
   align-items: center;
 }
 .container {
-  margin: 50px auto;
+  margin: auto;
   padding: 50px;
-  width: 880px;
+  width: 100%;
   border: 1px solid gray;
   border-radius: 10px;
   background-color: #fffffff2;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   position: relative;
+  box-sizing: border-box;
 }
+
 .select-mountain {
   display: block;
   position: relative;
@@ -68,7 +70,6 @@ label[for="title"] {
 .detail {
   display: flex;
   justify-content: space-around;
-  gap: 150px;
   margin: 50px;
 }
 .photo {
@@ -217,7 +218,6 @@ label[for="title"] {
 .check-again .unload {
   display: none;
   width: 300px;
-  /* border: 1px solid gray; */
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   padding: 30px;
@@ -268,11 +268,9 @@ label[for="title"] {
 @media screen and (min-width: 750px) and (max-width: 1050px) {
   .container {
     padding: 20px;
-    width: 600px;
     box-sizing: border-box;
   }
   #title {
-    width: 400px;
     border: 0;
     border-bottom: 1px solid lightgray;
     padding: 10px 5px;
@@ -299,7 +297,6 @@ label[for="title"] {
 @media screen and (max-width: 749px) {
   .container {
     padding: 20px;
-    width: 350px;
     box-sizing: border-box;
   }
   #title {
@@ -312,6 +309,7 @@ label[for="title"] {
     margin: 50px 0 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 30px;
   }
@@ -341,7 +339,7 @@ label[for="title"] {
     background: url(../svg/picture.svg);
     background-repeat: no-repeat;
     background-size: 40px;
-}
+  }
   .drag-and-drop {
     height: 150px;
     flex-direction: column;
@@ -361,7 +359,7 @@ label[for="title"] {
     color: #fff;
     background-color: #4ec53d;
     margin: auto;
-}
+  }
   .wrap span {
     display: inline-block;
     margin: 0 30px 0 0;

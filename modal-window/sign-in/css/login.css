@@ -1,8 +1,7 @@
 .container {
-  width: 600px;
-  height: 800px;
-  border: 1px solid gray;
-  border-radius: 15px;
+  width: 400px;
+  height: 600px;
+  border-radius: 10px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -12,31 +11,32 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 2px 2px 5px 2px lightgray;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+  border: 0;
+  border-radius: 10px;
 }
 .container > h1 {
-  margin: 0 0 50px;
+  margin: 0 0 32px;
+  font-size: 24px;
 }
 .wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 .social-login {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 12px;
 }
 .social-login button {
-  width: 500px;
-  height: 80px;
+  width: 350px;
+  height: 55px;
   border: 0;
-  border-radius: 5px;
   padding: 0;
-  margin: 5px 0;
 }
 button[name="naver"] {
   background: url(../img/naver.png);
@@ -57,8 +57,7 @@ button[name="google"] {
   .container {
     width: 290px;
     height: 450px;
-    border: 1px solid gray;
-    border-radius: 15px;
+    border-radius: 10px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -68,39 +67,14 @@ button[name="google"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 2px 2px 5px 2px lightgray;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    border: 0;
+    border-radius: 10px;
   }
   .social-login button {
     width: 250px;
     height: 40px;
     border: 0;
-    border-radius: 5px;
     padding: 0;
-  }
-}
-@media screen and (min-width: 481px) {
-  .container {
-    width: 400px;
-    height: 600px;
-    border: 1px solid gray;
-    border-radius: 15px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 2px 2px 5px 2px lightgray;
-  }
-  .social-login button {
-    width: 350px;
-    height: 55px;
-    border: 0;
-    border-radius: 5px;
-    padding: 0;
-    margin: 5px 0;
   }
 }

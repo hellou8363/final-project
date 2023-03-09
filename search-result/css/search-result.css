@@ -7,19 +7,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 15px;
 }
 /* container */
 .container {
   width: 70%;
   border: 1px solid lightgray;
-  border-radius: 15px;
+  border-radius: 10px;
   margin: 100px auto;
   padding: 50px;
   background-color: #fff;
 }
 .out-line {
   border: 1px solid lightgray;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 30px;
 }
 .container > hr {
@@ -62,19 +63,25 @@
   text-align: left;
 }
 #itemContent {
-  display: inline-block;
-  overflow-y: hidden;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    margin: 0;
 }
 .itemDetail {
   height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 10px;
 }
 #itemImg {
   display: inline-block;
-  height: 100%;
-  border-radius: 20px;
+  width: 100%;
+  border-radius: 10px;
 }
 /* 통합검색 - 모집글 */
 .recruit .wrap {
@@ -87,7 +94,7 @@
   display: inline-block;
   width: 200px;
   border: 1px solid gray;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 20px;
   margin: 0 10px;
   text-align: center;
@@ -172,17 +179,14 @@
 
 /* Add */
 #itemTitle,
-#itemImg {
+.itemDetail {
   margin: 0 0 15px;
-}
-#itemContent {
-  margin: 15px 0;
 }
 @media screen and (max-width: 480px) {
   .container {
     width: 80%;
     border: 1px solid lightgray;
-    border-radius: 15px;
+    border-radius: 10px;
     margin: 100px auto 100px;
     padding: 0 20px;
     background-color: #fff;
@@ -198,7 +202,7 @@
     display: inline-block;
     width: 250px;
     border: 1px solid gray;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 20px;
     margin: 0 10px;
     text-align: center;
@@ -222,27 +226,20 @@
     justify-content: center;
     align-items: center;
   }
-  #itemImg {
-    display: inline-block;
-    width: 300px;
-    height: 250px;
-    border-radius: 10px;
-  }
-  #itemContent {
-    height: 130px;
+  /* #itemContent {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
-  }
+  } */
 }
 @media screen and (min-width: 481px) {
   .container {
     width: 80%;
     border: 1px solid lightgray;
-    border-radius: 15px;
+    border-radius: 10px;
     margin: 100px auto 100px;
     padding: 0 20px;
     background-color: #fff;
@@ -251,23 +248,12 @@
     border: 0;
     padding: 0;
   }
-  .itemDetail {
-    height: 150px;
-  }
-  #itemImg {
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-  }
-  #itemContent {
-    height: 150px;
-    /* margin: 0 20px; */
+  /* #itemContent {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
-  }
+  } */
 }

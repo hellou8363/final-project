@@ -8,8 +8,7 @@
 [로그인/로그아웃 모달창] https://hellou8363.github.io/final-project-template/modal-window/login-out-check/modal-window  
 
 ## 구현 페이지 소스
-[헤더] https://github.com/hellou8363/final-project-template/tree/main/header  
-[푸터] https://github.com/hellou8363/final-project-template/tree/main/footer  
+[헤더&푸터] https://github.com/hellou8363/final-project-template/tree/main/header-and-footer    
 [메인] https://github.com/hellou8363/final-project-template/tree/main/main  
 [통합검색결과] https://github.com/hellou8363/final-project-template/tree/main/search-result  
 [모집글 작성] https://github.com/hellou8363/final-project-template/tree/main/write  

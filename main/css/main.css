@@ -18,40 +18,88 @@ section div > h2 {
   margin-bottom: 15px;
 }
 .wrap {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
   overflow: scroll;
   white-space: nowrap;
-  scrollbar-width: none;
   user-select: none;
-  scroll-behavior: smooth;
+  padding-bottom: 32px;
 }
 .wrap::-webkit-scrollbar {
   display: none;
 }
-.item {
-  display: inline-block;
+/* mountain-info */
+.mountain-item {
   width: 200px;
-  border-radius: 15px;
-  padding: 20px;
-  margin: 0 10px 32px;
-  text-align: center;
+  height: 330px;
+  padding: 15px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 0 3px 3px rgba(0, 0, 0, 0.22);
+
   background-color: #fff;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 0 3px 3px
-		rgba(0, 0, 0, 0.22);
-	border: 0;
-	border-radius: 10px;
+
+  text-align: center;
+
+  display: grid;
+  grid-template-rows: 165px 45px 90px 30px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+      "photo       photo   photo"
+      ". mountname ."
+      "contents  contents  contents"
+      "like        .     .";
+
+  align-items: center;
+  justify-items: center;  
 }
-.item > img {
-  display: inline-block;
+.mountain-img {
+  grid-area: photo;
   width: 150px;
   height: 150px;
   border-radius: 50%;
 }
-.item > form {
+.mountain-name {
+  grid-area: mountname;
+  margin: 0;
+
+  font-size: 20px;
+}
+.contents {
+  width: 195px;
+  margin: 0 0 0 5px;
+  
+  font-size: 15px;
+
+  grid-area: contents;
+  text-align: left;
+
+  white-space: nowrap;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.mountain-like {
+  grid-area: like;
   text-align: left;
   display: flex;
   align-items: center;
   gap: 5px;
-  margin: 10px 0 0;
+}
+.favorite {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: url(../svg/favorite.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.favorite-count {
+  font-size: 12px;
 }
 #title {
   margin: 10px auto;
@@ -62,7 +110,7 @@ section div > h2 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 .favorite {
@@ -102,7 +150,7 @@ section div > h2 {
   background: url(../svg/rank.svg);
   background-repeat: no-repeat;
 }
-/* mountain-info - 개별 스타일 X */
+
 /* recruit */
 .user-info {
   display: flex;
@@ -132,11 +180,11 @@ section div > h2 {
 .recruit-data > p {
   margin: 0;
 }
-.recruit-data > #mountainName {
+/* .recruit-data > #mountainName {
   text-align: center;
   font-size: 15px;
   font-weight: bold;
-}
+} */
 /* review */
 .top-info {
   display: flex;

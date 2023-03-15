@@ -76,7 +76,7 @@
           <!-- form 필수값 검증 후 값이 없는 경우 알림 -->
           <div class="alert-window">
             <p>
-              산이름, 제목은<br />
+              산이름, 제목, 내용은<br />
               필수사항입니다.
             </p>
             <button type="button">확인</button>
@@ -95,6 +95,7 @@
               name="title"
               id="title"
               placeholder="제목을 입력하세요.(최소 2자 ~ 최대 20자 가능)"
+              minlength="2"
               maxlength="20"
               required
             />

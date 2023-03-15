@@ -1,25 +1,14 @@
-.total-wrap {
-  min-width: 320px;
-  max-width: 1024px;
-  margin: auto;
-  padding: 0 2.5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-}
 .container {
   margin: auto;
   padding: 50px;
   width: 100%;
   border: 1px solid gray;
   border-radius: 10px;
+  box-sizing: border-box;
   background-color: #fffffff2;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  position: relative;
+  gap: 10px;
 }
 .select-mountain {
   display: block;
@@ -76,16 +65,6 @@ label[for="title"] {
   background-size: 20px;
   cursor: pointer;
 }
-.photo > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-.wrap span {
-  width: 65px;
-  display: inline-block;
-  margin: 0px 30px;
-}
 #text {
   width: 100%;
   height: 600px;
@@ -97,9 +76,9 @@ label[for="title"] {
   overflow: scroll;
   overflow-x: hidden;
 }
-.text > p {
+/* .text > p {
   font-weight: bold;
-}
+} */
 .buttons {
   display: flex;
   justify-content: right;
@@ -247,23 +226,7 @@ label[for="title"] {
   text-align: center;
   gap: 10px;
 }
-@media screen and (min-width: 750px) and (max-width: 1050px) {
-  .container {
-    box-sizing: border-box;
-  }
-  #title {
-    width: 400px;
-    border: 0;
-    border-bottom: 1px solid lightgray;
-    padding: 10px 5px;
-    margin-left: 20px;
-  }
-  .wrap span {
-    display: inline-block;
-    margin: 0 20px 0 0;
-  }
-}
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .container {
     padding: 20px;
     width: 100%;
@@ -315,10 +278,6 @@ label[for="title"] {
     background-color: #4ec53d;
     margin: auto;
 }
-  .wrap span {
-    display: inline-block;
-    margin: 0 30px 0 0;
-  }
   .bunttons {
     align-items: center;
   }

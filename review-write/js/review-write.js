@@ -224,7 +224,7 @@ $$(".drag-and-drop").ondrop = (e) => {
 
   const files = [...e.dataTransfer?.files];
 
-  console.log(files)
+  console.log(files);
 
   // 업로드 파일 용량 체크
   if (isFileMaxSize(files)) {
@@ -280,7 +280,10 @@ $$(".drag-and-drop + button").onclick = (e) => {
   }
   $$(".add-photo").style.display = "none";
   // test - 이미지 삽입 후 줄 바꿈 처리
-  $$("#text").innerHTML += `<br>` + imgPath + `<span class="blind">&lt;img&gt;</span><div><br></div>` ?? "";
+  $$("#text").innerHTML +=
+    `<br>` +
+      imgPath +
+      `<span class="blind">&lt;img&gt;</span><div><br></div>` ?? "";
 };
 
 // 드래그 앤 드롭 대신 클릭으로 업로드 할 때
@@ -320,12 +323,40 @@ const formCheck = () => {
     return false;
   } // if
 
+  if ($$("#text").innerText.length < 20) {
+    alert();
+    alertWindow(text);
+    return false;
+  } // if
+
   // form value 모든 검증이 끝난 후
   // 등록 버튼 이벤트 수행
-  $$("#upload").click();
+  // $$("#upload").click(e);
 
-  $$("#upload").onclick = () => {
+  $$("#upload").onclick = (e) => {
+    e.preventDefault();
+
     $$(".check-again .upload").style.display = "block";
+
+    // TODO: 데이터 전송 값 확인 필요
+    // form 데이터 전송
+    $(document).ready(function() {
+      $("#upload").click(function() {
+        var content = $('#text').html(); // div 요소 안의 내용을 가져옴
+
+        console.log("content: " + content)
+  
+        // AJAX를 사용하여 서버로 데이터를 전송
+        $.ajax({
+          type: 'POST',
+          url: '/upload',
+          data: {content: content},
+          success: function(response) {
+            // 서버로부터의 응답을 처리
+          }
+        });
+      });
+    });
   };
 };
 

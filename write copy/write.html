@@ -76,7 +76,7 @@
           <!-- form 필수값 검증 후 값이 없는 경우 알림 -->
           <div class="alert-window">
             <p>
-              말머리, 제목, 날짜, 시간, 참여인원은<br />
+              산이름, 제목, 날짜, 시간, 참여인원은<br />
               필수사항입니다.
             </p>
             <button type="button">확인</button>
@@ -101,7 +101,6 @@
           </div>
           <div class="detail">
             <div class="photo"></div>
-            <input class="blind" type="file" name="imgFile">
             <div class="add-photo">
               <div class="top">
                 <div class="folder-icon"></div>
@@ -130,16 +129,17 @@
                 <span>참여인원</span
                 ><input
                   type="number"
-                  name="member"
+                  name="maxMember"
                   id="member"
                   min="2"
                   max="45"
+                  placeholder="2 ~ 45"
                   required
                 />
               </p>
               <p>
                 <span>준비물</span
-                ><input type="text" name="readyItems" id="readyItems" maxlength="" />
+                ><input type="text" name="items" id="readyItems" maxlength="" />
               </p>
               <p>
                 <span>등반조건</span
@@ -149,7 +149,7 @@
           </div>
           <div class="text">
             <p>하고 싶은 말</p>
-            <textarea name="text" id="text" maxlength="2000"></textarea>
+            <textarea name="contents" id="contents" maxlength="2000"></textarea>
           </div>
           <div class="buttons">
             <button type="button" id="cancle">취소</button>

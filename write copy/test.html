@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <input type="file" name="" id=""> -->
+  <div id="test">test</div>
+  <script>
+    window.addEventListener("input", e => console.log(e.target))
+// 자바스크립트 코드
+// function uploadFile() {
+//   const input = document.getElementById("file-input");
+//   const file = input.files[0];
+  
+//   const formData = new FormData();
+//   formData.append("file", file);
+  
+//   // AJAX 요청을 통해 파일 업로드 처리
+//   const xhr = new XMLHttpRequest();
+//   xhr.open("POST", "/upload");
+//   xhr.send(formData);
+// }
+
+// input 태그 동적 생성
+  const input = document.createElement("input");
+  input.id = "test"
+  input.type = "file";
+  input.accept = ".jpg, .jpeg, .png";
+// 업로드 버튼에 이벤트 리스너 등록
+input.click();
+document.querySelector("#test").addEventListener("click", () => {
+  console.log("click");
+  input.click();
+  input.addEventListener("input", e => {
+    console.log(e.target);
+    console.log(e.target.files)
+  })
+})
+
+
+  </script>
+</body>
+</html>

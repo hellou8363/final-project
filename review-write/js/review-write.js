@@ -253,7 +253,7 @@ const handleUpdate = (files) => {
 
     reader.addEventListener("load", (e) => {
       imgPath = `<img name="ImagePath" src="${e.target.result}" value="${e.target.result}" alt="모집 글 작성 폼 이미지"></img>
-      <input type="hidden" name="imagePath" id="imagePath" value="${e.target.result}">`;
+      <input type="hidden" name="imagePath" id="imagePath"z>`;
     });
 
     reader.readAsDataURL(file);

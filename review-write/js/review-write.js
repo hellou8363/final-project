@@ -107,46 +107,46 @@ let isReadyUpload = false; // 파일 업로드 가능여부
 // select에 산 이름 출력
 mountains.map(
   (value) =>
-    ($$(
+    (selector(
       ".select-mountain select"
     ).innerHTML += `<option value="${value}">${value}</option>`)
 );
 
 // 취소 버튼 이벤트
-$$("#cancle").addEventListener("click", () => {
-  $$(".check-again .unload").style.display = "block";
+selector("#cancle").addEventListener("click", () => {
+  selector(".check-again .unload").style.display = "block";
 });
 
 // 이미지 추가 버튼 클릭 이벤트
-$$(".photo").addEventListener("click", () => {
-  $$(".drag-and-drop").innerHTML = `
+selector(".photo").addEventListener("click", () => {
+  selector(".drag-and-drop").innerHTML = `
   <div class="picture"></div>
   <p>
     여기로 이미지를 드래그하거나<br />
     파일을 업로드 하세요.
     (최대 20MB)
   </p>`;
-  $$(".add-photo").style.display = "block";
+  selector(".add-photo").style.display = "block";
 });
 
 // 이미지 추가 취소 버튼 클릭 이벤트
-$$(".add-photo .cancel").addEventListener("click", () => {
-  $$(".add-photo").style.display = "none";
+selector(".add-photo .cancel").addEventListener("click", () => {
+  selector(".add-photo").style.display = "none";
 });
 
 // 등록 취소 버튼 클릭 이벤트
-$$(".check-again .upload input[type=button]").addEventListener("click", () => {
-  $$(".check-again .upload").style.display = "none";
+selector(".check-again .upload input[type=button]").addEventListener("click", () => {
+  selector(".check-again .upload").style.display = "none";
 });
 
 // 삭제 취소 버튼 클릭 이벤트
-$$(".check-again .unload input[type=button]").addEventListener("click", () => {
-  $$(".check-again .unload").style.display = "none";
+selector(".check-again .unload input[type=button]").addEventListener("click", () => {
+  selector(".check-again .unload").style.display = "none";
 });
 
 // 작성 취소(삭제) 버튼 클릭 이벤트
-$$(".check-again .unload input[type=reset]").addEventListener("click", () => {
-  $$(".check-again .unload").style.display = "none";
+selector(".check-again .unload input[type=reset]").addEventListener("click", () => {
+  selector(".check-again .unload").style.display = "none";
 });
 
 const getTextFile = () => {
@@ -180,7 +180,7 @@ const processFile = (file) => {
   reader.readAsDataURL(file);
 
   reader.onload = function () {
-    $$(".drag-and-drop").innerHTML = `<p>${file.name}</p>`;
+    selector(".drag-and-drop").innerHTML = `<p>${file.name}</p>`;
 
     imgPath = `<img name="ImagePath" src="${reader.result}" value="${reader.result}" alt="후기글 이미지"></img>
     <input type="hidden" name="imagePath" id="imagePath" value="${reader.result}">`;
@@ -190,7 +190,7 @@ const processFile = (file) => {
 // 업로드 파일 용량 체크
 const isFileMaxSize = (files) => {
   if (files[0].size > 20971520) {
-    $$(".drag-and-drop").innerHTML = `
+    selector(".drag-and-drop").innerHTML = `
     <p>최대 업로드 용량은 20MB입니다.<br>
     현재 파일의 용량은 ${Math.floor((files[0].size / 1048576) * 10) / 10}입니다.
     </p>`;
@@ -207,7 +207,7 @@ const isRightFile = (files) => {
     files[0].type !== "image/png" &&
     files[0].type !== "image/jpg"
   ) {
-    $$(".drag-and-drop").innerHTML = `
+    selector(".drag-and-drop").innerHTML = `
     <p>업로드 가능한 파일 형식은<br>
     .jpg, .jpeg, .png입니다.
     </p>`;
@@ -219,7 +219,7 @@ const isRightFile = (files) => {
 
 // 드래그 앤 드롭 이벤트
 // 업로드 최대 용량: 20,971,520byte(20MB)
-$$(".drag-and-drop").ondrop = (e) => {
+selector(".drag-and-drop").ondrop = (e) => {
   e.preventDefault();
 
   const files = [...e.dataTransfer?.files];
@@ -239,14 +239,14 @@ $$(".drag-and-drop").ondrop = (e) => {
   // 위 조건을 모두 통과할 경우
   isReadyUpload = true;
 
-  $$(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
+  selector(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
 
   handleUpdate([...files]);
 };
 
 // 드래그 앤 드롭 한 이미지를 imgPath에 담기
 const handleUpdate = (files) => {
-  $$(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
+  selector(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
 
   files.forEach((file) => {
     const reader = new FileReader();
@@ -261,8 +261,8 @@ const handleUpdate = (files) => {
 };
 
 // 작성 중 취소 -> 예(Red Button)이벤트
-$$(".unload input[type=reset]").onclick = () => {
-  const elem = $$(".photo");
+selector(".unload input[type=reset]").onclick = () => {
+  const elem = selector(".photo");
 
   while (elem.firstChild) {
     elem.removeChild(elem.firstChild);
@@ -270,33 +270,33 @@ $$(".unload input[type=reset]").onclick = () => {
 };
 
 // 드래그 앤 드롭으로 파일 업로드 하기 위한 기본 이벤트 방지
-$$(".drag-and-drop").ondragover = (e) => e.preventDefault();
-$$(".drag-and-drop").ondragleave = (e) => e.preventDefault();
+selector(".drag-and-drop").ondragover = (e) => e.preventDefault();
+selector(".drag-and-drop").ondragleave = (e) => e.preventDefault();
 
 // 변경 버튼 클릭 이벤트
-$$(".drag-and-drop + button").onclick = (e) => {
+selector(".drag-and-drop + button").onclick = (e) => {
   if (imgPath === undefined || !isReadyUpload) {
     return false;
   }
-  $$(".add-photo").style.display = "none";
+  selector(".add-photo").style.display = "none";
   // test - 이미지 삽입 후 줄 바꿈 처리
-  $$("#text").innerHTML +=
+  selector("#text").innerHTML +=
     `<br>` +
       imgPath +
       `<span class="blind">&lt;img&gt;</span><div><br></div>` ?? "";
 };
 
 // 드래그 앤 드롭 대신 클릭으로 업로드 할 때
-$$(".drag-and-drop").onclick = () => getTextFile();
+selector(".drag-and-drop").onclick = () => getTextFile();
 
 // 필수입력사항 안내창 확인 클릭 이벤트
 const alertWindow = (item) =>
-  ($$(".alert-window button").onclick = () => {
-    $$(".alert-window").style.display = "none";
+  (selector(".alert-window button").onclick = () => {
+    selector(".alert-window").style.display = "none";
     item?.focus();
   });
 
-$$("#upload").onclick = (e) => {
+selector("#upload").onclick = (e) => {
   e.preventDefault();
   formCheck();
 };
@@ -307,9 +307,9 @@ const formCheck = () => {
   const form = document.forms[0];
 
   // input names
-  const mountainName = $$("select[name=mountainName]");
-  const title = $$("#title");
-  const alert = () => ($$(".alert-window").style.display = "flex");
+  const mountainName = selector("select[name=mountainName]");
+  const title = selector("#title");
+  const alert = () => (selector(".alert-window").style.display = "flex");
 
   if (form.elements.mountainName.value === "") {
     alert();
@@ -323,7 +323,7 @@ const formCheck = () => {
     return false;
   } // if
 
-  if ($$("#text").innerText.length < 20) {
+  if (selector("#text").innerText.length < 20) {
     alert();
     alertWindow(text);
     return false;
@@ -331,12 +331,12 @@ const formCheck = () => {
 
   // form value 모든 검증이 끝난 후
   // 등록 버튼 이벤트 수행
-  // $$("#upload").click(e);
+  // selector("#upload").click(e);
 
-  $$("#upload").onclick = (e) => {
+  selector("#upload").onclick = (e) => {
     e.preventDefault();
 
-    $$(".check-again .upload").style.display = "block";
+    selector(".check-again .upload").style.display = "block";
 
     // TODO: 데이터 전송 값 확인 필요
     // form 데이터 전송

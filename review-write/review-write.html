@@ -18,41 +18,47 @@
   </head>
   <body>
     <div class="total-wrap">
-    <!-- hearder start -->
-    <header>
-      <div class="header">
-      <div class="logoDiv">
-        <a class="logo" href="./header.html">
-          <h1 class="blind">We Go</h1>
-        </a>
-      </div>
-      <div>
-        <nav>
-          <ul class="navbar">
-            <li><a href="#">산정보</a></li>
-            <li><a href="#">등산후기</a></li>
-            <li><a href="#">랭킹</a></li>
-            <li><a href="#">모집</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="user">
-        <!-- 로그인 상태 => 현재 display: none; 상태 -->
-        <img id="userImg" class="user-profile-img" src="https://picsum.photos/id/684/600/400" alt="회원 프로필 이미지" />
-        <!-- 비로그인 상태 -->
-        <button class="login-btn"></button>
-        <div class="menubar">
-          <ul>
-            <li><a href="../mypage/mypage.html">마이페이지</a></li>
-            <li><a href="#">알림</a></li>
-            <li><a href="#">문의하기</a></li>
-            <li class="text-red"><a href="#">로그아웃</a></li>
-          </ul>
+      <!-- hearder start -->
+      <header>
+        <div class="header">
+          <div class="logoDiv">
+            <a href="#">
+              <span class="wegoLogo"></span>
+              <span class="wogoTitle"></span>
+            </a>
+          </div>
+          <div>
+            <nav>
+              <ul class="navbar">
+                <li><a href="#">산정보</a></li>
+                <li><a href="#">등산후기</a></li>
+                <li><a href="#">랭킹</a></li>
+                <li><a href="#">모집</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="user">
+            <!-- 로그인 상태 => 현재 display: none; 상태 -->
+            <img
+              id="userImg"
+              class="user-profile-img"
+              src="https://picsum.photos/id/684/600/400"
+              alt="회원 프로필 이미지"
+            />
+            <!-- 비로그인 상태 -->
+            <button class="login-btn"></button>
+            <div class="menubar">
+              <ul>
+                <li><a href="../mypage/mypage.html">마이페이지</a></li>
+                <li><a href="#">알림</a></li>
+                <li><a href="#">문의하기</a></li>
+                <li class="text-red"><a href="#">로그아웃</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <!--
-       <div class="search-bar">
+        <!--
+      <div class="search-bar">
         <div>
           <form action="#" method="get">
             <button class="search-icon" type="submit"></button>
@@ -68,9 +74,8 @@
         </div>
       </div>
     -->
-    </header>
-    <!-- hearder end -->
-      <!-- Contents -->
+      </header>
+      <!-- hearder end -->
       <section>
         <form action="#" method="post" class="container">
           <!-- form 필수값 검증 후 값이 없는 경우 알림 -->
@@ -115,9 +120,14 @@
                   파일을 업로드 하세요. (최대 20MB)
                 </p>
               </div>
-              <button type="button">변경</button>
+              <button type="button">등록</button>
             </div>
-            <div contentEditable="true" name="text" id="text" maxlength="2000"></div>
+            <div
+              contenteditable="true"
+              name="text"
+              id="text"
+              maxlength="2000"
+            ></div>
           </div>
           <div class="buttons">
             <button type="button" id="cancle">취소</button>
@@ -140,6 +150,7 @@
           </div>
         </form>
       </section>
+    </div>
     <!-- Footer Start -->
     <footer>
       <div class="footer">
@@ -160,14 +171,18 @@
         </address>
         <div class="support">
           <span class="link-bar">
-            <a href="https://www.figma.com/file/4Gfranq8Iqz4pSebwzUc1W/Final-project?node-id=0%3A1&t=UILOPhDRyS6LJiQW-1"
-              target="_blank"></a>
-            <a href="https://github.com/KH-Q-peaker?tab=repositories" target="_blank"></a>
+            <a
+              href="https://www.figma.com/file/4Gfranq8Iqz4pSebwzUc1W/Final-project?node-id=0%3A1&t=UILOPhDRyS6LJiQW-1"
+              target="_blank"
+            ></a>
+            <a
+              href="https://github.com/KH-Q-peaker?tab=repositories"
+              target="_blank"
+            ></a>
           </span>
         </div>
       </div>
     </footer>
     <!-- Footer End -->
-    </div>
   </body>
 </html>

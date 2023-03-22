@@ -1,7 +1,43 @@
+@charset "utf-8";
+
+body {
+  margin: 0px;
+  background: url(../img/bg-wego.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:active,
+a:hover {
+  color: #000;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
 footer {
-  width: 100vw;
-  background-color: #43a047;
+  bottom: 0px;
+  
   margin-top: 100px;
+  
+  width: 100%;
+
+  background-color: #43a047;
 }
 .footer {
   min-width: 375px;
@@ -10,6 +46,7 @@ footer {
   padding: 30px;
   position: relative;
   margin: auto;
+  box-sizing: border-box;
 }
 .footer li {
   position: relative;

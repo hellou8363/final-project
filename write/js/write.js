@@ -133,8 +133,14 @@ selector("#date").min = today;
 // ========================= 추가 이벤트
 
 // 이미지 추가 버튼 클릭 이벤트
-selector(".photo").addEventListener("click", () => {
-  selector(".drag-and-drop").innerHTML = `
+selector(".photo").addEventListener("click", (e) => {
+  // 추가한 이미지 업로드 취소 시 이벤트
+  if (e.target.className === "img-upload-cancle") {
+    e.stopPropagation();
+    console.log("click");
+    uploadImgRemove();
+  } else {
+    selector(".drag-and-drop").innerHTML = `
   <div class="picture"></div>
   <p>
     여기로 이미지를 드래그하거나<br />
@@ -142,8 +148,9 @@ selector(".photo").addEventListener("click", () => {
     (최대 20MB)
   </p>`;
 
-  selector(".add-photo").style.display = "block";
-  $(".add-photo").attr("tabindex", -1).focus();
+    selector(".add-photo").style.display = "block";
+    $(".add-photo").attr("tabindex", -1).focus();
+  } // if
 });
 
 // ========================= 취소 이벤트
@@ -178,15 +185,18 @@ selector(".check-again .unload input[type=button]").addEventListener(
 // 작성 취소 -> 예(삭제, Red Button) 버튼 클릭 이벤트
 selector(".check-again .unload input[type=reset]").addEventListener(
   "click",
-  () => {
-    selector(".check-again .unload").style.display = "none";
-    const elem = selector(".photo");
-
-    while (elem.firstChild) {
-      elem.removeChild(elem.firstChild);
-    } // while
-  }
+  () => uploadImgRemove()
 );
+
+// 업로드 이미지 삭제
+const uploadImgRemove = () => {
+  selector(".check-again .unload").style.display = "none";
+  const elem = selector(".photo");
+
+  while (elem.firstChild) {
+    elem.removeChild(elem.firstChild);
+  } // while
+};
 
 // ========================= 드래그 앤 드롭 이벤트
 
@@ -305,7 +315,7 @@ selector(".drag-and-drop + button").onclick = (e) => {
   } // if
 
   selector(".add-photo").style.display = "none";
-  selector(".photo").innerHTML = imgPath ?? "";
+  selector(".photo").innerHTML += imgPath + `<button type="button" class="img-upload-cancle"></button>`;
 
   imgPath = null;
 };
@@ -350,7 +360,7 @@ const formCheck = () => {
     return false;
   } // if
 
-  if (form.elements.date.value === "") {
+  if (form.elements.date.value === "" || form.elements.date.value < today) {
     alert();
     alertWindow(selector("#date"));
     return false;
@@ -385,8 +395,22 @@ const formCheck = () => {
 // 등록 여부 재확인 -> 예(폼 전송) 이벤트
 selector(".upload input[type=submit]").onclick = (e) => {
   e.preventDefault();
-  
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "/recruitment/upload");
-  xhr.send(formData);
+
+  const req = new XMLHttpRequest();
+  req.open("POST", "/recruitment/upload");
+  req.send(formData);
+  req.onreadystatechange = () => {
+    if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
+      req.r;
+    }
+  };
+};
+
+selector(".upload input[type=submit]").onclick = (e) => {
+  e.preventDefault();
+
+  fetch("/recruitment/upload", {
+    method: "POST",
+    body: formData,
+  }).then((res) => (window.location.replace = res.url));
 };

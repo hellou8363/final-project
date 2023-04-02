@@ -215,103 +215,19 @@
         <div class="mountain-info">
           <h2>❤️ 산 ❤️</h2>
           <div class="wrap">
-            <div class="mountain-item">
-              <img class="mountain-img" src="./img/gray.png" alt="img" />
-              <h3 class="mountain-name" id="mountainName">한라산</h3>
-              <p class="contents" id="text">
-                Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem
-                ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum
-                dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit
-                amet.Lorem ipsum dolor sit amet.
-              </p>
-              <form class="mountain-like" action="#" method="get">
-                <button
-                  type="submit"
-                  name="favorite"
-                  value="true"
-                  class="favorite"
-                ></button>
-                <span class="favorite-count">1000</span>
-              </form>
-            </div>
-            <!-- Sample Code Start -->
-            <div class="mountain-item">
-              <img class="mountain-img" src="./img/gray.png" alt="img" />
-              <h3 class="mountain-name" id="mountainName">한라산</h3>
-              <p class="contents" id="text">
-                Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem
-                ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum
-                dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit
-                amet.Lorem ipsum dolor sit amet.
-              </p>
-              <form class="mountain-like" action="#" method="get">
-                <button
-                  type="submit"
-                  name="favorite"
-                  value="true"
-                  class="favorite"
-                ></button>
-                <span class="favorite-count">1000</span>
-              </form>
-            </div>
-            <div class="mountain-item">
-              <img class="mountain-img" src="./img/gray.png" alt="img" />
-              <h3 class="mountain-name" id="mountainName">한라산</h3>
-              <p class="contents" id="text">
-                Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem
-                ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum
-                dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit
-                amet.Lorem ipsum dolor sit amet.
-              </p>
-              <form class="mountain-like" action="#" method="get">
-                <button
-                  type="submit"
-                  name="favorite"
-                  value="true"
-                  class="favorite"
-                ></button>
-                <span class="favorite-count">1000</span>
-              </form>
-            </div>
-            <div class="mountain-item">
-              <img class="mountain-img" src="./img/gray.png" alt="img" />
-              <h3 class="mountain-name" id="mountainName">한라산</h3>
-              <p class="contents" id="text">
-                Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem
-                ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum
-                dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit
-                amet.Lorem ipsum dolor sit amet.
-              </p>
-              <form class="mountain-like" action="#" method="get">
-                <button
-                  type="submit"
-                  name="favorite"
-                  value="true"
-                  class="favorite"
-                ></button>
-                <span class="favorite-count">1000</span>
-              </form>
-            </div>
-            <div class="mountain-item">
-              <img class="mountain-img" src="./img/gray.png" alt="img" />
-              <h3 class="mountain-name" id="mountainName">한라산</h3>
-              <p class="contents" id="text">
-                Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem
-                ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum
-                dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit
-                amet.Lorem ipsum dolor sit amet.
-              </p>
-              <form class="mountain-like" action="#" method="get">
-                <button
-                  type="submit"
-                  name="favorite"
-                  value="true"
-                  class="favorite"
-                ></button>
-                <span class="favorite-count">1000</span>
-              </form>
-            </div>
-            <!-- Sample Code End -->
+						<a href="/info/detail?sanInfoId=${item.sanInfoId}">
+							<div class="mountain-item">
+								<img class="mountain-img" src="${item.img}" alt="img" />
+								<h3 class="mountain-name" id="mountainName">${item.sanName}</h3>
+								<p class="mountain-contents" id="text">${item.details}</p>
+								<form class="mountain-like" action="#" method="get">
+									<button type="submit" name="favorite" value="true"
+										class="favorite"></button>
+									<span class="favorite-count">${item.likeCnt}</span>
+								</form>
+							</div> <!-- mountain-item -->
+						</a>
+            
           </div>
         </div>
         <div class="recruit">

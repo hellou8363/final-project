@@ -15,17 +15,17 @@ const mountains = [
   "금오산",
   "금정산",
   "깃대봉",
-  "남산(금오산)",
+  "남산",
   "내연산",
   "내장산",
   "대둔산",
   "대암산",
   "대야산",
   "덕숭산(수덕산)",
-  "덕유산",
+  "덕유산(향적봉)",
   "덕항산",
   "도락산",
-  "도봉산",
+  "도봉산(자운봉)",
   "두륜산",
   "두타산",
   "마니산",
@@ -76,7 +76,7 @@ const mountains = [
   "주왕산",
   "주흘산",
   "지리산",
-  "지리산",
+  "지리산(통영)",
   "천관산",
   "천마산",
   "천성산",
@@ -92,7 +92,7 @@ const mountains = [
   "팔봉산",
   "팔영산",
   "한라산",
-  "화악산",
+  "화악산(중봉)",
   "화왕산",
   "황매산",
   "황석산",
@@ -101,23 +101,67 @@ const mountains = [
   "희양산",
 ];
 
-let imgPath; // 업로드 이미지 임시 저장 변수
-let isReadyUpload = false; // 파일 업로드 가능여부
-
-// select에 산 이름 출력
+// select에 산 이름 출력(100대 명산)
 mountains.map(
-  (value) =>
+  (value, index) =>
     (selector(
       ".select-mountain select"
     ).innerHTML += `<option value="${value}">${value}</option>`)
 );
 
-// 취소 버튼 이벤트
-selector("#cancle").addEventListener("click", () => {
-  selector(".check-again .unload").style.display = "block";
+// Enter키로 인한 submit 방지 이벤트
+document.forms[0].addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && e.target.id !== "contents") {
+    e.preventDefault();
+    return false;
+  } // if
 });
 
-// 이미지 추가 버튼 클릭 이벤트
+// ========================= 취소 이벤트
+
+// 모집글 작성 취소 버튼 이벤트
+selector("#cancle").addEventListener("click", () => {
+  selector(".check-again .unload").style.display = "block";
+  $(".check-again .unload").attr("tabindex", -1).focus();
+});
+
+// 작성 취소 -> 예(삭제, Red Button) 버튼 클릭 이벤트
+selector(".check-again .unload input[type=reset]").addEventListener(
+  "click",
+  () => {
+    selector(".check-again .unload").style.display = "none";
+    const elem = selector("#contents");
+
+    while (elem.firstChild) {
+      elem.removeChild(elem.firstChild);
+    } // while
+  }
+);
+
+// 삭제 취소 버튼 클릭 이벤트
+selector(".check-again .unload input[type=button]").addEventListener(
+  "click",
+  () => {
+    selector(".check-again .unload").style.display = "none";
+  }
+);
+
+// 등록 취소 버튼 클릭 이벤트
+selector(".check-again .upload input[type=button]").addEventListener(
+  "click",
+  () => {
+    selector(".check-again .upload").style.display = "none";
+  }
+);
+
+// 이미지 추가 취소 버튼 클릭 이벤트
+selector(".add-photo .cancel").addEventListener("click", () => {
+  selector(".add-photo").style.display = "none";
+  imgPath = null;
+});
+
+// ========================= 추가 이벤트
+// 이미지 추가 버튼 클릭 이벤트(후기는 최대 5장 추가 가능)
 selector(".photo").addEventListener("click", () => {
   selector(".drag-and-drop").innerHTML = `
   <div class="picture"></div>
@@ -126,105 +170,40 @@ selector(".photo").addEventListener("click", () => {
     파일을 업로드 하세요.
     (최대 20MB)
   </p>`;
+
   selector(".add-photo").style.display = "block";
+  $(".add-photo").attr("tabindex", -1).focus();
 });
 
-// 이미지 추가 취소 버튼 클릭 이벤트
-selector(".add-photo .cancel").addEventListener("click", () => {
-  selector(".add-photo").style.display = "none";
-});
-
-// 등록 취소 버튼 클릭 이벤트
-selector(".check-again .upload input[type=button]").addEventListener("click", () => {
-  selector(".check-again .upload").style.display = "none";
-});
-
-// 삭제 취소 버튼 클릭 이벤트
-selector(".check-again .unload input[type=button]").addEventListener("click", () => {
-  selector(".check-again .unload").style.display = "none";
-});
-
-// 작성 취소(삭제) 버튼 클릭 이벤트
-selector(".check-again .unload input[type=reset]").addEventListener("click", () => {
-  selector(".check-again .unload").style.display = "none";
-});
-
-const getTextFile = () => {
-  const input = document.createElement("input");
-
-  input.type = "file";
-  input.accept = ".jpg, .jpeg, .png";
-
-  input.onchange = (event) => {
-    // 업로드 파일 용량 체크
-    if (isFileMaxSize(event.target.files)) {
-      return false;
-    } // if
-
-    // 파일형식 체크
-    if (isRightFile(event.target.files)) {
-      return false;
-    } // if
-
-    // 위 조건을 모두 통과할 경우
-    isReadyUpload = true;
-    processFile(event.target.files[0]);
-  };
-
-  input.click();
-};
-
-const processFile = (file) => {
-  const reader = new FileReader();
-
-  reader.readAsDataURL(file);
-
-  reader.onload = function () {
-    selector(".drag-and-drop").innerHTML = `<p>${file.name}</p>`;
-
-    imgPath = `<img name="ImagePath" src="${reader.result}" value="${reader.result}" alt="후기글 이미지"></img>
-    <input type="hidden" name="imagePath" id="imagePath" value="${reader.result}">`;
-  };
-};
-
-// 업로드 파일 용량 체크
-const isFileMaxSize = (files) => {
-  if (files[0].size > 20971520) {
-    selector(".drag-and-drop").innerHTML = `
-    <p>최대 업로드 용량은 20MB입니다.<br>
-    현재 파일의 용량은 ${Math.floor((files[0].size / 1048576) * 10) / 10}입니다.
-    </p>`;
-
-    isReadyUpload = false;
-    return true;
+// ========================= 1500자까지 입력
+document.querySelector("#contents").addEventListener("input", (e) => {
+  if (e.target.innerText.length > 1500) {
+    document.getSelection().removeAllRanges();
+    cutText(e.target.innerText, 1500);
+    // return false;
   } // if
-};
+  console.log(e.target.innerText.length);
+});
 
-// 파일형식 체크
-const isRightFile = (files) => {
-  if (
-    files[0].type !== "image/jpeg" &&
-    files[0].type !== "image/png" &&
-    files[0].type !== "image/jpg"
-  ) {
-    selector(".drag-and-drop").innerHTML = `
-    <p>업로드 가능한 파일 형식은<br>
-    .jpg, .jpeg, .png입니다.
-    </p>`;
+async function cutText(text, length) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(text.slice(0, length));
+    }, 1000);
+  });
+}
 
-    isReadyUpload = false;
-    return true;
-  } // if
-};
+// ========================= 이미지 업로드 이벤트(드래그 드롭 & 클릭)
+// ========================= 드래그 앤 드롭 이벤트
+// 드래그 앤 드롭으로 파일 업로드 하기 위한 기본 이벤트 방지
+selector(".drag-and-drop").ondragover = (e) => e.preventDefault();
+selector(".drag-and-drop").ondragleave = (e) => e.preventDefault();
 
-// 드래그 앤 드롭 이벤트
-// 업로드 최대 용량: 20,971,520byte(20MB)
+// 드래그 앤 드롭 이벤트 - 업로드 최대 용량: 20,971,520byte(20MB)
 selector(".drag-and-drop").ondrop = (e) => {
   e.preventDefault();
 
   const files = [...e.dataTransfer?.files];
-
-  console.log(files);
 
   // 업로드 파일 용량 체크
   if (isFileMaxSize(files)) {
@@ -232,138 +211,188 @@ selector(".drag-and-drop").ondrop = (e) => {
   } // if
 
   // 파일형식 체크
-  if (isRightFile(files)) {
+  if (isWrongFile(files)) {
     return false;
   } // if
 
-  // 위 조건을 모두 통과할 경우
-  isReadyUpload = true;
-
-  selector(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
+  selector(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`; // 파일명 표시
 
   handleUpdate([...files]);
 };
 
-// 드래그 앤 드롭 한 이미지를 imgPath에 담기
+// 드래그 앤 드롭 대신 클릭으로 업로드 할 때
+selector(".drag-and-drop").onclick = () => {
+  const input = document.createElement("input");
+  input.id = "test";
+  input.type = "file";
+  input.accept = ".jpg, .jpeg, .png";
+
+  input.click();
+
+  input.addEventListener("input", (e) => {
+    const files = e.target.files;
+    console.log("input-file: ", files);
+
+    // 업로드 파일 용량 체크
+    if (isFileMaxSize(files)) {
+      return false;
+    } // if
+
+    // 파일형식 체크
+    if (isWrongFile(files)) {
+      return false;
+    } // if
+
+    selector(".drag-and-drop").innerHTML = `<p>${e.target.files[0].name}</p>`; // 파일명 표시
+
+    handleUpdate([...files]);
+  });
+};
+
+// 이미지 추가 -> 등록 버튼 클릭 이벤트
+selector(".drag-and-drop + button").onclick = (e) => {
+  if (imgPath === undefined || imgPath === null) {
+    return false;
+  } // if
+
+  selector(".add-photo").style.display = "none";
+  selector("#contents").innerHTML += `${imgPath}<div><br></div>`;
+
+  imgPath = null;
+};
+
+// ========================= 업로드 파일 용량 및 형식 이벤트
+// 업로드 파일 용량 체크
+const isFileMaxSize = (file) => {
+  console.log("call isFileMaxSize", file);
+  if (file[0].size > 20971520) {
+    selector(".drag-and-drop").innerHTML = `
+    <p>최대 업로드 용량은 20MB입니다.<br>
+    현재 파일의 용량은 ${Math.floor((file[0].size / 1048576) * 10) / 10}입니다.
+    </p>`;
+
+    return true;
+  } // if
+};
+
+// 파일형식 체크
+const isWrongFile = (file) => {
+  console.log("call isRightFile", file);
+  if (
+    file[0].type !== "image/jpeg" &&
+    file[0].type !== "image/png" &&
+    file[0].type !== "image/jpg"
+  ) {
+    selector(".drag-and-drop").innerHTML = `
+    <p>업로드 가능한 파일 형식은<br>
+    .jpg, .jpeg, .png입니다.
+    </p>`;
+
+    return true;
+  } // if
+
+  return false;
+};
+
+// 업로드 이미지를 화면에 썸네일처럼 보여주기 위한 imgPath에 담기
+const imgFiles = {}; // 업로드 이미지들을 저장할 객체
+let imgPath; // 업로드 이미지 임시 저장 변수
 const handleUpdate = (files) => {
-  selector(".drag-and-drop").innerHTML = `<p>${files[0].name}</p>`;
+  imgFiles[`${files[0].name}`] = files[0];
 
   files.forEach((file) => {
     const reader = new FileReader();
 
     reader.addEventListener("load", (e) => {
-      imgPath = `<img name="ImagePath" src="${e.target.result}" value="${e.target.result}" alt="모집 글 작성 폼 이미지"></img>
-      <input type="hidden" name="imagePath" id="imagePath"z>`;
+      console.log("e.target", e.target);
+      imgPath = `<img src="${e.target.result}" alt="${files[0].name}"></img>`;
     });
 
     reader.readAsDataURL(file);
   });
 };
 
-// 작성 중 취소 -> 예(Red Button)이벤트
-selector(".unload input[type=reset]").onclick = () => {
-  const elem = selector(".photo");
+// ========================= 폼 데이터
+const formData = new FormData(); // FormDate
 
-  while (elem.firstChild) {
-    elem.removeChild(elem.firstChild);
-  } // while
+// 등록 버튼 클릭 시 폼 검증 이벤트
+selector("#upload").onclick = (e) => {
+  e.preventDefault();
+
+  if (formCheck()) {
+    // 등록 여부를 재확인 하는 모달창을 보여주는 이벤트
+    selector(".check-again .upload").style.display = "block";
+    $(".check-again .upload").attr("tabindex", -1).focus();
+  } // if
 };
 
-// 드래그 앤 드롭으로 파일 업로드 하기 위한 기본 이벤트 방지
-selector(".drag-and-drop").ondragover = (e) => e.preventDefault();
-selector(".drag-and-drop").ondragleave = (e) => e.preventDefault();
-
-// 변경 버튼 클릭 이벤트
-selector(".drag-and-drop + button").onclick = (e) => {
-  if (imgPath === undefined || !isReadyUpload) {
-    return false;
-  }
-  selector(".add-photo").style.display = "none";
-  // test - 이미지 삽입 후 줄 바꿈 처리
-  selector("#text").innerHTML +=
-    `<br>` +
-      imgPath +
-      `<span class="blind">&lt;img&gt;</span><div><br></div>` ?? "";
+// 필수입력사항 안내 모달창 이벤트
+const alert = () => {
+  selector(".alert-window").style.display = "flex";
+  $(".alert-window").attr("tabindex", -1).focus();
 };
-
-// 드래그 앤 드롭 대신 클릭으로 업로드 할 때
-selector(".drag-and-drop").onclick = () => getTextFile();
 
 // 필수입력사항 안내창 확인 클릭 이벤트
 const alertWindow = (item) =>
   (selector(".alert-window button").onclick = () => {
     selector(".alert-window").style.display = "none";
-    item?.focus();
+    item.focus();
   });
 
-selector("#upload").onclick = (e) => {
-  e.preventDefault();
-  formCheck();
-};
-
-// 후기 글 작성 폼 검증
+// 모집 글 작성 폼 검증
 const formCheck = () => {
-  // 문서 내 첫 번째 form
   const form = document.forms[0];
 
-  // input names
-  const mountainName = selector("select[name=mountainName]");
-  const title = selector("#title");
-  const alert = () => (selector(".alert-window").style.display = "flex");
-
-  if (form.elements.mountainName.value === "") {
+  if (form.elements.sanName.value === "") {
     alert();
-    alertWindow(mountainName);
+    alertWindow(selector("select[name=sanName]"));
     return false;
   } // if
 
   if (form.elements.title.value.length < 2) {
     alert();
-    alertWindow(title);
+    alertWindow(selector("#title"));
     return false;
   } // if
 
-  if (selector("#text").innerText.length < 20) {
-    alert();
-    alertWindow(text);
-    return false;
-  } // if
+  // 위 필수입력값이 모두 입력되었다면 폼 데이터에 저장
+  // 내용을 순회하면서 img태그의 위치에 <img>삽입
+  const contentChildNodes = selector("#contents").childNodes;
+  let contentResult = ""; // formData에 contents로 담을 텍스트
+  const imgFileNames = []; // 이미지 파일명 저장(중간 제거된 이미지 유무를 위함)
+  for (let i = 0; i < contentChildNodes.length; i++) {
+    if (contentChildNodes[i].nodeName === "IMG") {
+      contentResult += "<img>";
+      imgFileNames.push(contentChildNodes[i].alt); //
+      continue;
+    } // if
+    if (contentChildNodes[i].nodeName === "#text") {
+      contentResult += contentChildNodes[i].nodeValue;
+      continue;
+    } // if
+    contentResult += contentChildNodes[i].innerText;
+  } // for
 
-  // form value 모든 검증이 끝난 후
-  // 등록 버튼 이벤트 수행
-  // selector("#upload").click(e);
+  // 폼 데이터 저장(산이름, 제목, 내용)
+  formData.set("sanName", form.elements.sanName.value);
+  formData.set("title", form.elements.title.value);
+  formData.set("contents", contentResult);
 
-  selector("#upload").onclick = (e) => {
-    e.preventDefault();
+  for (let key in imgFiles) {
+    if (imgFileNames.includes(imgFiles[key].name)) {
+      formData.append("imgFiles", imgFiles[key]);
+    } // if
+  } // for
 
-    selector(".check-again .upload").style.display = "block";
-
-    // TODO: 데이터 전송 값 확인 필요
-    // form 데이터 전송
-    $(document).ready(function() {
-      $("#upload").click(function() {
-        var content = $('#text').html(); // div 요소 안의 내용을 가져옴
-
-        console.log("content: " + content)
-  
-        // AJAX를 사용하여 서버로 데이터를 전송
-        $.ajax({
-          type: 'POST',
-          url: '/upload',
-          data: {content: content},
-          success: function(response) {
-            // 서버로부터의 응답을 처리
-          }
-        });
-      });
-    });
-  };
+  return true;
 };
 
-// Enter키로 인한 submit 방지 이벤트
-document.forms[0].addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && e.target.id !== "text") {
-    e.preventDefault();
-    return false;
-  } // if
-});
+// 등록 여부 재확인 -> 예(폼 전송) 이벤트
+selector(".upload input[type=submit]").onclick = (e) => {
+  e.preventDefault();
+
+  fetch("/review/register", {
+    method: "POST",
+    body: formData,
+  }).then((res) => (window.location.replace = res.url));
+};
